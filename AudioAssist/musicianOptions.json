@@ -1,0 +1,259 @@
+{
+    "items":[
+             {
+             "name": "acoustic guitar",
+             "iconImage":"guitar.png",
+             "titleForLabel":"acoustic guitar",
+             "positionX": 175,
+             "positionY": 250,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 950,
+             "doesExist": false
+             },
+             {
+             "name": "drums",
+             "iconImage":"drum.png",
+             "titleForLabel":"drums",
+             "positionX": 480,
+             "positionY": 250,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 951,
+             "doesExist": false
+             },
+             {
+             "name": "piano",
+             "iconImage":"piano.png",
+             "titleForLabel":"piano",
+             "positionX": 300,
+             "positionY": 350,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 952,
+             "doesExist": false
+             },
+             {
+             "name": "electric guitar",
+             "iconImage":"electric-guitar.png",
+             "titleForLabel":"electric guitar",
+             "positionX": 750,
+             "positionY": 250,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 953,
+             "doesExist": false
+             },
+             {
+             "name": "keyboard",
+             "iconImage":"keyboard.png",
+             "titleForLabel":"keyboard",
+             "positionX": 650,
+             "positionY": 350,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 954,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 1",
+             "iconImage":"man-1",
+             "titleForLabel":"singer 1",
+             "positionX": 85,
+             "positionY": 500,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 955,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 2",
+             "iconImage":"woman-1",
+             "titleForLabel":"singer 2",
+             "positionX": 170,
+             "positionY": 450,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 956,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 3",
+             "iconImage":"man-2",
+             "titleForLabel":"singer 3",
+             "positionX": 255,
+             "positionY": 500,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 957,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 4",
+             "iconImage":"woman-2",
+             "titleForLabel":"singer 4",
+             "positionX": 340,
+             "positionY": 450,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 958,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 5",
+             "iconImage":"man-3",
+             "titleForLabel":"singer 5",
+             "positionX": 430,
+             "positionY": 500,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 959,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 6",
+             "iconImage":"woman-3",
+             "titleForLabel":"singer 6",
+             "positionX": 520,
+             "positionY": 450,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 960,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 7",
+             "iconImage":"man-4",
+             "titleForLabel":"singer 8",
+             "positionX": 605,
+             "positionY": 500,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 961,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 8",
+             "iconImage":"woman-4",
+             "titleForLabel":"singer 8",
+             "positionX": 690,
+             "positionY": 450,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 962,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 9",
+             "iconImage":"man-5",
+             "titleForLabel":"singer 9",
+             "positionX": 780,
+             "positionY": 500,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 963,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 10",
+             "iconImage":"woman-5",
+             "titleForLabel":"singer 10",
+             "positionX": 870,
+             "positionY": 450,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 964,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 11",
+             "iconImage":"man-6",
+             "titleForLabel":"singer 11",
+             "positionX": 130,
+             "positionY": 610,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 965,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 12",
+             "iconImage":"woman-6",
+             "titleForLabel":"singer 12",
+             "positionX": 225,
+             "positionY": 610,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 966,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 13",
+             "iconImage":"man-7",
+             "titleForLabel":"singer 13",
+             "positionX": 320,
+             "positionY": 610,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 967,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 14",
+             "iconImage":"woman-7",
+             "titleForLabel":"singer 14",
+             "positionX": 415,
+             "positionY": 610,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 968,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 14",
+             "iconImage":"man-8",
+             "titleForLabel":"singer 14",
+             "positionX": 510,
+             "positionY": 610,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 969,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 15",
+             "iconImage":"man",
+             "titleForLabel":"singer 15",
+             "positionX": 605,
+             "positionY": 610,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 970,
+             "doesExist": false
+             },
+             {
+             "name": "🎤singer 16",
+             "iconImage":"woman",
+             "titleForLabel":"singer 16",
+             "positionX": 700,
+             "positionY": 610,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 971,
+             "doesExist": false
+             },
+             {
+             "name": "click",
+             "iconImage":"metronome.png",
+             "titleForLabel":"click",
+             "positionX": 50,
+             "positionY": 170,
+             "width": 68,
+             "height": 68,
+             "uniqueID": 972,
+             "doesExist": false
+             }
+
+        ]
+
+}

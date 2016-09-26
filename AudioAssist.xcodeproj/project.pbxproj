@@ -12,9 +12,39 @@
 		4A0D3D1F1D99E24300B79F75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D1E1D99E24300B79F75 /* Assets.xcassets */; };
 		4A0D3D221D99E24300B79F75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D201D99E24300B79F75 /* LaunchScreen.storyboard */; };
 		4A0D3D2A1D99E28700B79F75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D291D99E28700B79F75 /* Main.storyboard */; };
+		4A0D3D2C1D99E3DC00B79F75 /* musicianOptions.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D2B1D99E3DC00B79F75 /* musicianOptions.json */; };
+		4A0D3D361D99E3E800B79F75 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D2D1D99E3E800B79F75 /* AppState.swift */; };
+		4A0D3D371D99E3E800B79F75 /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D2E1D99E3E800B79F75 /* Musician.swift */; };
+		4A0D3D381D99E3E800B79F75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D2F1D99E3E800B79F75 /* Message.swift */; };
+		4A0D3D391D99E3E800B79F75 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D301D99E3E800B79F75 /* ChatViewController.swift */; };
+		4A0D3D3A1D99E3E800B79F75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D311D99E3E800B79F75 /* LoginViewController.swift */; };
+		4A0D3D3B1D99E3E800B79F75 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D321D99E3E800B79F75 /* MessageCell.swift */; };
+		4A0D3D3C1D99E3E800B79F75 /* ConfigOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D331D99E3E800B79F75 /* ConfigOptionsCell.swift */; };
+		4A0D3D3D1D99E3E800B79F75 /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D341D99E3E800B79F75 /* LayoutViewController.swift */; };
+		4A0D3D3E1D99E3E800B79F75 /* LayoutConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */; };
+		4A0D3D411D99E49B00B79F75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D401D99E49B00B79F75 /* GoogleService-Info.plist */; };
+		4A0D3D521D99E57500B79F75 /* stageOverheadCropped.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D421D99E57500B79F75 /* stageOverheadCropped.png */; };
+		4A0D3D531D99E57500B79F75 /* Hand Down-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D431D99E57500B79F75 /* Hand Down-48.png */; };
+		4A0D3D541D99E57500B79F75 /* Hand Left-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D441D99E57500B79F75 /* Hand Left-48.png */; };
+		4A0D3D551D99E57500B79F75 /* Hand Right-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D451D99E57500B79F75 /* Hand Right-48.png */; };
+		4A0D3D561D99E57500B79F75 /* Hand Up-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D461D99E57500B79F75 /* Hand Up-48.png */; };
+		4A0D3D571D99E57500B79F75 /* electric-guitar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D471D99E57500B79F75 /* electric-guitar.png */; };
+		4A0D3D581D99E57500B79F75 /* stageOverhead.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D481D99E57500B79F75 /* stageOverhead.png */; };
+		4A0D3D591D99E57500B79F75 /* checkedRequest.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D491D99E57500B79F75 /* checkedRequest.png */; };
+		4A0D3D5A1D99E57500B79F75 /* uncheckedRequest.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4A1D99E57500B79F75 /* uncheckedRequest.png */; };
+		4A0D3D5B1D99E57500B79F75 /* guitar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4B1D99E57500B79F75 /* guitar.png */; };
+		4A0D3D5C1D99E57500B79F75 /* Checked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4C1D99E57500B79F75 /* Checked@3x.png */; };
+		4A0D3D5D1D99E57500B79F75 /* Unchecked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4D1D99E57500B79F75 /* Unchecked@3x.png */; };
+		4A0D3D5E1D99E57500B79F75 /* metronome.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4E1D99E57500B79F75 /* metronome.png */; };
+		4A0D3D5F1D99E57500B79F75 /* piano.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4F1D99E57500B79F75 /* piano.png */; };
+		4A0D3D601D99E57500B79F75 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D501D99E57500B79F75 /* keyboard.png */; };
+		4A0D3D611D99E57500B79F75 /* drum.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D511D99E57500B79F75 /* drum.png */; };
+		6E9614B566CA8EE3BACB962C /* Pods_AudioAssist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3916C8D24F0553AEDDEA0D /* Pods_AudioAssist.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39D65A982690C4FA45CAB171 /* Pods-AudioAssist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioAssist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioAssist/Pods-AudioAssist.debug.xcconfig"; sourceTree = "<group>"; };
+		46B5F27CC8763D72BC89C467 /* Pods-AudioAssist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioAssist.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioAssist/Pods-AudioAssist.release.xcconfig"; sourceTree = "<group>"; };
 		4A0D3D111D99E24300B79F75 /* AudioAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A0D3D141D99E24300B79F75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A0D3D1C1D99E24300B79F75 /* AudioAssist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioAssist.xcdatamodel; sourceTree = "<group>"; };
@@ -22,6 +52,34 @@
 		4A0D3D211D99E24300B79F75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A0D3D231D99E24300B79F75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A0D3D291D99E28700B79F75 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4A0D3D2B1D99E3DC00B79F75 /* musicianOptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = musicianOptions.json; sourceTree = "<group>"; };
+		4A0D3D2D1D99E3E800B79F75 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		4A0D3D2E1D99E3E800B79F75 /* Musician.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
+		4A0D3D2F1D99E3E800B79F75 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4A0D3D301D99E3E800B79F75 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		4A0D3D311D99E3E800B79F75 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4A0D3D321D99E3E800B79F75 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		4A0D3D331D99E3E800B79F75 /* ConfigOptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigOptionsCell.swift; sourceTree = "<group>"; };
+		4A0D3D341D99E3E800B79F75 /* LayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
+		4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfigTableViewController.swift; sourceTree = "<group>"; };
+		4A0D3D401D99E49B00B79F75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4A0D3D421D99E57500B79F75 /* stageOverheadCropped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stageOverheadCropped.png; sourceTree = "<group>"; };
+		4A0D3D431D99E57500B79F75 /* Hand Down-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand Down-48.png"; sourceTree = "<group>"; };
+		4A0D3D441D99E57500B79F75 /* Hand Left-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand Left-48.png"; sourceTree = "<group>"; };
+		4A0D3D451D99E57500B79F75 /* Hand Right-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand Right-48.png"; sourceTree = "<group>"; };
+		4A0D3D461D99E57500B79F75 /* Hand Up-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand Up-48.png"; sourceTree = "<group>"; };
+		4A0D3D471D99E57500B79F75 /* electric-guitar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "electric-guitar.png"; sourceTree = "<group>"; };
+		4A0D3D481D99E57500B79F75 /* stageOverhead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stageOverhead.png; sourceTree = "<group>"; };
+		4A0D3D491D99E57500B79F75 /* checkedRequest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedRequest.png; sourceTree = "<group>"; };
+		4A0D3D4A1D99E57500B79F75 /* uncheckedRequest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedRequest.png; sourceTree = "<group>"; };
+		4A0D3D4B1D99E57500B79F75 /* guitar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guitar.png; sourceTree = "<group>"; };
+		4A0D3D4C1D99E57500B79F75 /* Checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked@3x.png"; sourceTree = "<group>"; };
+		4A0D3D4D1D99E57500B79F75 /* Unchecked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unchecked@3x.png"; sourceTree = "<group>"; };
+		4A0D3D4E1D99E57500B79F75 /* metronome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = metronome.png; sourceTree = "<group>"; };
+		4A0D3D4F1D99E57500B79F75 /* piano.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piano.png; sourceTree = "<group>"; };
+		4A0D3D501D99E57500B79F75 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
+		4A0D3D511D99E57500B79F75 /* drum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drum.png; sourceTree = "<group>"; };
+		FA3916C8D24F0553AEDDEA0D /* Pods_AudioAssist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioAssist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E9614B566CA8EE3BACB962C /* Pods_AudioAssist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +99,8 @@
 			children = (
 				4A0D3D131D99E24300B79F75 /* AudioAssist */,
 				4A0D3D121D99E24300B79F75 /* Products */,
+				AF40D30888E4B6F886B55749 /* Pods */,
+				E982D226F8BB0EE2A2CF15A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +115,58 @@
 		4A0D3D131D99E24300B79F75 /* AudioAssist */ = {
 			isa = PBXGroup;
 			children = (
+				4A0D3D2B1D99E3DC00B79F75 /* musicianOptions.json */,
 				4A0D3D141D99E24300B79F75 /* AppDelegate.swift */,
+				4A0D3D2D1D99E3E800B79F75 /* AppState.swift */,
+				4A0D3D2E1D99E3E800B79F75 /* Musician.swift */,
+				4A0D3D2F1D99E3E800B79F75 /* Message.swift */,
+				4A0D3D301D99E3E800B79F75 /* ChatViewController.swift */,
+				4A0D3D311D99E3E800B79F75 /* LoginViewController.swift */,
+				4A0D3D321D99E3E800B79F75 /* MessageCell.swift */,
+				4A0D3D331D99E3E800B79F75 /* ConfigOptionsCell.swift */,
+				4A0D3D341D99E3E800B79F75 /* LayoutViewController.swift */,
+				4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */,
 				4A0D3D291D99E28700B79F75 /* Main.storyboard */,
 				4A0D3D1E1D99E24300B79F75 /* Assets.xcassets */,
+				4A0D3D421D99E57500B79F75 /* stageOverheadCropped.png */,
+				4A0D3D431D99E57500B79F75 /* Hand Down-48.png */,
+				4A0D3D441D99E57500B79F75 /* Hand Left-48.png */,
+				4A0D3D451D99E57500B79F75 /* Hand Right-48.png */,
+				4A0D3D461D99E57500B79F75 /* Hand Up-48.png */,
+				4A0D3D471D99E57500B79F75 /* electric-guitar.png */,
+				4A0D3D481D99E57500B79F75 /* stageOverhead.png */,
+				4A0D3D491D99E57500B79F75 /* checkedRequest.png */,
+				4A0D3D4A1D99E57500B79F75 /* uncheckedRequest.png */,
+				4A0D3D4B1D99E57500B79F75 /* guitar.png */,
+				4A0D3D4C1D99E57500B79F75 /* Checked@3x.png */,
+				4A0D3D4D1D99E57500B79F75 /* Unchecked@3x.png */,
+				4A0D3D4E1D99E57500B79F75 /* metronome.png */,
+				4A0D3D4F1D99E57500B79F75 /* piano.png */,
+				4A0D3D501D99E57500B79F75 /* keyboard.png */,
+				4A0D3D511D99E57500B79F75 /* drum.png */,
 				4A0D3D201D99E24300B79F75 /* LaunchScreen.storyboard */,
 				4A0D3D231D99E24300B79F75 /* Info.plist */,
+				4A0D3D401D99E49B00B79F75 /* GoogleService-Info.plist */,
 				4A0D3D1B1D99E24300B79F75 /* AudioAssist.xcdatamodeld */,
 			);
 			path = AudioAssist;
+			sourceTree = "<group>";
+		};
+		AF40D30888E4B6F886B55749 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39D65A982690C4FA45CAB171 /* Pods-AudioAssist.debug.xcconfig */,
+				46B5F27CC8763D72BC89C467 /* Pods-AudioAssist.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E982D226F8BB0EE2A2CF15A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA3916C8D24F0553AEDDEA0D /* Pods_AudioAssist.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +176,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A0D3D261D99E24300B79F75 /* Build configuration list for PBXNativeTarget "AudioAssist" */;
 			buildPhases = (
+				E5F968B5A4E337FDC3FDE763 /* 📦 Check Pods Manifest.lock */,
 				4A0D3D0D1D99E24300B79F75 /* Sources */,
 				4A0D3D0E1D99E24300B79F75 /* Frameworks */,
 				4A0D3D0F1D99E24300B79F75 /* Resources */,
+				5AC9670CB39DBD725F9F358E /* 📦 Embed Pods Frameworks */,
+				494AF3BD216B6D90808D31ED /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,20 +230,95 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0D3D5A1D99E57500B79F75 /* uncheckedRequest.png in Resources */,
+				4A0D3D561D99E57500B79F75 /* Hand Up-48.png in Resources */,
 				4A0D3D2A1D99E28700B79F75 /* Main.storyboard in Resources */,
+				4A0D3D5D1D99E57500B79F75 /* Unchecked@3x.png in Resources */,
+				4A0D3D5E1D99E57500B79F75 /* metronome.png in Resources */,
+				4A0D3D5C1D99E57500B79F75 /* Checked@3x.png in Resources */,
+				4A0D3D2C1D99E3DC00B79F75 /* musicianOptions.json in Resources */,
+				4A0D3D591D99E57500B79F75 /* checkedRequest.png in Resources */,
+				4A0D3D601D99E57500B79F75 /* keyboard.png in Resources */,
+				4A0D3D5B1D99E57500B79F75 /* guitar.png in Resources */,
+				4A0D3D541D99E57500B79F75 /* Hand Left-48.png in Resources */,
+				4A0D3D521D99E57500B79F75 /* stageOverheadCropped.png in Resources */,
+				4A0D3D531D99E57500B79F75 /* Hand Down-48.png in Resources */,
+				4A0D3D571D99E57500B79F75 /* electric-guitar.png in Resources */,
+				4A0D3D5F1D99E57500B79F75 /* piano.png in Resources */,
+				4A0D3D411D99E49B00B79F75 /* GoogleService-Info.plist in Resources */,
 				4A0D3D221D99E24300B79F75 /* LaunchScreen.storyboard in Resources */,
 				4A0D3D1F1D99E24300B79F75 /* Assets.xcassets in Resources */,
+				4A0D3D581D99E57500B79F75 /* stageOverhead.png in Resources */,
+				4A0D3D551D99E57500B79F75 /* Hand Right-48.png in Resources */,
+				4A0D3D611D99E57500B79F75 /* drum.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		494AF3BD216B6D90808D31ED /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioAssist/Pods-AudioAssist-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AC9670CB39DBD725F9F358E /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioAssist/Pods-AudioAssist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5F968B5A4E337FDC3FDE763 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A0D3D0D1D99E24300B79F75 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0D3D3D1D99E3E800B79F75 /* LayoutViewController.swift in Sources */,
+				4A0D3D3E1D99E3E800B79F75 /* LayoutConfigTableViewController.swift in Sources */,
+				4A0D3D3C1D99E3E800B79F75 /* ConfigOptionsCell.swift in Sources */,
+				4A0D3D3A1D99E3E800B79F75 /* LoginViewController.swift in Sources */,
+				4A0D3D3B1D99E3E800B79F75 /* MessageCell.swift in Sources */,
+				4A0D3D361D99E3E800B79F75 /* AppState.swift in Sources */,
 				4A0D3D1D1D99E24300B79F75 /* AudioAssist.xcdatamodeld in Sources */,
+				4A0D3D381D99E3E800B79F75 /* Message.swift in Sources */,
+				4A0D3D371D99E3E800B79F75 /* Musician.swift in Sources */,
+				4A0D3D391D99E3E800B79F75 /* ChatViewController.swift in Sources */,
 				4A0D3D151D99E24300B79F75 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +424,7 @@
 		};
 		4A0D3D271D99E24300B79F75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39D65A982690C4FA45CAB171 /* Pods-AudioAssist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AudioAssist/Info.plist;
@@ -252,6 +436,7 @@
 		};
 		4A0D3D281D99E24300B79F75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46B5F27CC8763D72BC89C467 /* Pods-AudioAssist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AudioAssist/Info.plist;
@@ -280,6 +465,7 @@
 				4A0D3D281D99E24300B79F75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
