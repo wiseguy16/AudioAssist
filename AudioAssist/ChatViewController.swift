@@ -98,7 +98,16 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     {
         super.viewDidLoad()
         
+        configureDatabase()
+        
         configureMusicians()
+//        displayMusiciansFromDatabase()
+//        let testMusician = arrayOfMusicians[0]
+//        let tButton = UIButton()
+//        tButton.frame = CGRect(x: testMusician.positionX, y: testMusician.positionY, width: testMusician.width, height: testMusician.height)
+//        tButton.setImage(UIImage(named: testMusician.iconImage), forState: .Normal)
+//        tButton.setTitle(testMusician.name, forState: .Normal)
+//        self.view.addSubview(tButton)
         
         // This is the default setting but be explicit anyway...
        // new_view.setTranslatesAutoresizingMaskIntoConstraints(true)
@@ -129,7 +138,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         
         
         
-        configureDatabase()
+        
        // tableview.reloadData()
        // print(self.arrayOfMessages)
       //  NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
@@ -195,25 +204,17 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 aLabel.textColor = UIColor.blackColor()
                 self.view.addSubview(aLabel)
                 item.doesExist = true
+                sendMusicianToFirebase(item)
                 print("\(arrayOfMusicians.count)")
             }
         }
     }
 
     
-    func configureMusicians()
-    {
-        
-    }
     
     func buttonPressed(sender: UIButton)
     {
-        
         chatTextField.text = chatTextField.text! + " " + sender.currentTitle!
-        // print("piano?")
-        
-        
-        
     }
     
     func buttonDragged(button: UIButton, event: UIEvent)
@@ -249,6 +250,90 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         }
         
     }
+    
+    func sendMusicianToFirebase(pickedMusician: Musician)
+    {
+        
+        let musicianData = pickedMusician
+        
+        ref.child("musicians").childByAutoId().setValue(["name": musicianData.name,
+                                                        "iconImage": musicianData.iconImage,
+                                                        "titleForLabel": musicianData.titleForLabel,
+                                                        "positionX": musicianData.positionX,
+                                                        "positionY": musicianData.positionY,
+                                                        "width": musicianData.width,
+                                                        "height": musicianData.height,
+                                                        "uniqueID": musicianData.uniqueID,
+                                                        "doesExist": musicianData.doesExist,
+                                                        "hasBeenDrawn": musicianData.hasBeenDrawn])
+    }
+    
+    func configureMusicians()
+    {
+        ref.child("musicians").observeEventType(.Value, withBlock: {
+            (snapshot) -> Void in
+            var newArrayOfMusicians: [Musician] = []
+            for item in snapshot.children
+            {
+                if let firebaseMusician = Musician.convertSnapshotToMusician(item as! FIRDataSnapshot)
+                {
+                    newArrayOfMusicians.append(firebaseMusician)
+                   // print(firebaseMusician.name)
+                    
+                }
+            }
+            self.arrayOfMusicians = newArrayOfMusicians
+            print(self.arrayOfMusicians)
+            self.displayMusiciansFromDatabase()
+            
+            //    self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: self.arrayOfMessages.count-1, inSection: 0)], withRowAnimation: .Automatic)
+            
+        })
+        
+
+        
+        
+    }
+    
+    func displayMusiciansFromDatabase()
+    {
+        for item in arrayOfMusicians
+        {
+            if item.hasBeenDrawn == false && item.doesExist == true
+            {
+                let aButton = UIButton()
+                aButton.frame = CGRect(x: item.positionX, y: item.positionY, width: item.width + 10, height: item.height)
+                aButton.setImage(UIImage(named: item.iconImage), forState: .Normal)
+                aButton.setTitle(item.name, forState: .Normal)
+                aButton.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
+                
+                aButton.tag = item.uniqueID
+                self.view.addSubview(aButton)
+                let panGesture = UIPanGestureRecognizer()
+                //  panGesture.delegate = self
+                aButton.addGestureRecognizer(panGesture)
+                aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
+                let aLabel = UILabel()
+                aLabel.frame = CGRect(x: item.positionX, y: item.positionY - 15, width: item.width, height: 15)
+                aLabel.text = item.name
+                aLabel.textColor = UIColor.blackColor()
+                self.view.addSubview(aLabel)
+                item.hasBeenDrawn = true
+                print("\(arrayOfMusicians.count)")
+            }
+        }
+        /*
+        let testMusician = arrayOfMusicians[0]
+        let tButton = UIButton()
+        tButton.frame = CGRect(x: testMusician.positionX, y: testMusician.positionY, width: testMusician.width, height: testMusician.height)
+        tButton.setImage(UIImage(named: testMusician.iconImage), forState: .Normal)
+        tButton.setTitle(testMusician.name, forState: .Normal)
+        self.view.addSubview(tButton)
+        */
+        
+        
+    }
+
 
 
     
@@ -284,11 +369,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     func musicianWasChosen(pickedMusician: Musician)
     {
         // dismiss(animated: true, completion: nil)
-        
         arrayOfMusicians.append(pickedMusician)
-        //remainingTimeZones.remove(at: theIndex)
         //tableView.reloadData()
-        
     }
     
 
@@ -397,7 +479,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
 
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
         // 1
         let cell = tableView.cellForRowAtIndexPath(indexPath)!
         
@@ -485,9 +568,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         
-        
         sendMessage(textField.text)
-        
         
         return false
     }

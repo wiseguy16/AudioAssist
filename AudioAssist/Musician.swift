@@ -20,6 +20,8 @@ class Musician
     var height: Int
     var uniqueID: Int
     var doesExist: Bool
+    var hasBeenDrawn: Bool
+    var ref: FIRDatabaseReference?
     
     init(myDictionary: [String: AnyObject])
     {
@@ -33,10 +35,11 @@ class Musician
         height = myDictionary["height"] as! Int
         uniqueID = myDictionary["uniqueID"] as! Int
         doesExist = myDictionary["doesExist"] as! Bool
+        hasBeenDrawn = myDictionary["hasBeenDrawn"] as! Bool
     }
 
     
-    init(name: String = "", iconImage: String = "", titleForLabel: String = "", positionX: Int = 0, positionY: Int = 0, width: Int = 0, height: Int = 0, uniqueID: Int = 0, doesExist: Bool = false)
+    init(name: String = "", iconImage: String = "", titleForLabel: String = "", positionX: Int = 0, positionY: Int = 0, width: Int = 0, height: Int = 0, uniqueID: Int = 0, doesExist: Bool = false, hasBeenDrawn: Bool = false)
     {
         self.name = name
         self.iconImage = iconImage
@@ -47,14 +50,17 @@ class Musician
         self.height = height
         self.uniqueID = uniqueID
         self.doesExist = doesExist
+        self.hasBeenDrawn = hasBeenDrawn
+        self.ref = nil
     }
     
     static func convertSnapshotToMusician(aSnap: FIRDataSnapshot) -> Musician?
     {
        var musician = aSnap.value as! Dictionary<String, AnyObject>
-        if let name = musician["name"], let iconImage = musician["iconImage"], let titleForLabel = musician["titleForLabel"], let positionX = musician["positionX"], let positionY = musician["positionY"], let width = musician["width"], let height = musician["height"], let uniqueID = musician["uniqueID"], let doesExist = musician["doesExist"]
+        if let name = musician["name"], let iconImage = musician["iconImage"], let titleForLabel = musician["titleForLabel"], let positionX = musician["positionX"], let positionY = musician["positionY"], let width = musician["width"], let height = musician["height"], let uniqueID = musician["uniqueID"], let doesExist = musician["doesExist"], let hasBeenDrawn = musician["hasBeenDrawn"]
         {
-            let aMusician = Musician(name: name as! String, iconImage: iconImage as! String, titleForLabel: titleForLabel as! String, positionX: positionX as! Int, positionY: positionY as! Int, width: width as! Int, height: height as! Int, uniqueID: uniqueID as! Int, doesExist: doesExist as! Bool)
+            let aMusician = Musician(name: name as! String, iconImage: iconImage as! String, titleForLabel: titleForLabel as! String, positionX: positionX as! Int, positionY: positionY as! Int, width: width as! Int, height: height as! Int, uniqueID: uniqueID as! Int, doesExist: doesExist as! Bool, hasBeenDrawn: hasBeenDrawn as! Bool)
+            aMusician.ref = aSnap.ref
             return aMusician
         }
         return nil

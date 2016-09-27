@@ -9,7 +9,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 950,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "drums",
@@ -20,7 +21,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 951,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "piano",
@@ -31,7 +33,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 952,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "electric guitar",
@@ -42,7 +45,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 953,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "keyboard",
@@ -53,7 +57,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 954,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 1",
@@ -64,7 +69,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 955,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 2",
@@ -75,7 +81,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 956,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 3",
@@ -86,7 +93,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 957,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 4",
@@ -97,7 +105,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 958,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 5",
@@ -108,7 +117,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 959,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 6",
@@ -119,7 +129,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 960,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 7",
@@ -130,7 +141,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 961,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 8",
@@ -141,7 +153,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 962,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 9",
@@ -152,7 +165,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 963,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 10",
@@ -163,7 +177,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 964,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 11",
@@ -174,7 +189,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 965,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 12",
@@ -185,7 +201,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 966,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 13",
@@ -196,7 +213,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 967,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 14",
@@ -207,7 +225,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 968,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 14",
@@ -218,7 +237,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 969,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 15",
@@ -229,7 +249,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 970,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "🎤singer 16",
@@ -240,7 +261,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 971,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              },
              {
              "name": "click",
@@ -251,7 +273,8 @@
              "width": 68,
              "height": 68,
              "uniqueID": 972,
-             "doesExist": false
+             "doesExist": false,
+             "hasBeenDrawn": false
              }
 
         ]
