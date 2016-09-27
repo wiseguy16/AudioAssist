@@ -9,13 +9,13 @@
 import UIKit
 import Firebase
 
-protocol PickMusicianDelegate
-{
-    func musicianWasChosen(pickedMusician: Musician)
-}
+//protocol PickMusicianDelegate
+//{
+//    func musicianWasChosen(pickedMusician: Musician)
+//}
 
 
-class LayoutViewController: UIViewController, PickMusicianDelegate,  UIGestureRecognizerDelegate
+class LayoutViewController: UIViewController//, PickMusicianDelegate,  UIGestureRecognizerDelegate
 {
     var arrayOfMusicians: [Musician] = []
     var location = CGPoint(x: 0, y: 0)
@@ -166,18 +166,18 @@ class LayoutViewController: UIViewController, PickMusicianDelegate,  UIGestureRe
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "ConfigureSegue"
-        {
-            let pickVC = segue.destinationViewController as! LayoutConfigTableViewController
-            pickVC.delegate = self
-        }
-
-    }
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+//    {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        if segue.identifier == "ConfigureSegue"
+//        {
+//            let pickVC = segue.destinationViewController as! LayoutConfigTableViewController
+//            pickVC.delegate = self
+//        }
+//
+//    }
     
 
 }

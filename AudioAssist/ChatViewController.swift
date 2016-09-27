@@ -10,13 +10,21 @@ import UIKit
 import Firebase
 
 
-//protocol LoginViewControllerDelegate
-//{
-//    func didSetSessionID(sessionIDFromLogin: String?)
-//}
-
-class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate//, LoginViewControllerDelegate
+protocol LoginViewControllerDelegate
 {
+    func didSetSessionID(sessionIDFromLogin: String?)
+}
+
+protocol PickMusicianDelegate
+{
+    func musicianWasChosen(pickedMusician: Musician)
+}
+
+class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate //, LoginViewControllerDelegate
+{
+    
+    var arrayOfMusicians: [Musician] = []
+    var location = CGPoint(x: 0, y: 0)
     
     @IBOutlet weak var stageBackground: UIImageView!
     //var location = CGPoint(x: 0, y: 0)
@@ -90,7 +98,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     {
         super.viewDidLoad()
         
-        
+        configureMusicians()
         
         // This is the default setting but be explicit anyway...
        // new_view.setTranslatesAutoresizingMaskIntoConstraints(true)
@@ -132,12 +140,16 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        reloadMusicians()
+    }
+    
   
     
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
-       // configureDatabase()
         if !AppState.sharedInstance.signedIn
         {
             performSegueWithIdentifier("ModalLoginSegue", sender: self)
@@ -159,6 +171,87 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    func reloadMusicians()
+    {
+        for item in arrayOfMusicians
+        {
+            if item.doesExist == false
+            {
+                let aButton = UIButton()
+                aButton.frame = CGRect(x: item.positionX, y: item.positionY, width: item.width + 10, height: item.height)
+                aButton.setImage(UIImage(named: item.iconImage), forState: .Normal)
+                aButton.setTitle(item.name, forState: .Normal)
+                aButton.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
+                
+                aButton.tag = item.uniqueID
+                self.view.addSubview(aButton)
+                let panGesture = UIPanGestureRecognizer()
+                //  panGesture.delegate = self
+                aButton.addGestureRecognizer(panGesture)
+                aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
+                let aLabel = UILabel()
+                aLabel.frame = CGRect(x: item.positionX, y: item.positionY - 15, width: item.width, height: 15)
+                aLabel.text = item.name
+                aLabel.textColor = UIColor.blackColor()
+                self.view.addSubview(aLabel)
+                item.doesExist = true
+                print("\(arrayOfMusicians.count)")
+            }
+        }
+    }
+
+    
+    func configureMusicians()
+    {
+        
+    }
+    
+    func buttonPressed(sender: UIButton)
+    {
+        
+        chatTextField.text = chatTextField.text! + " " + sender.currentTitle!
+        // print("piano?")
+        
+        
+        
+    }
+    
+    func buttonDragged(button: UIButton, event: UIEvent)
+    {
+        //        // get the touch
+        //        let translation = recognizer.translationInView(self.view)
+        //        if let view = recognizer.view {
+        //            view.center = CGPoint(x:view.center.x + translation.x,
+        //                                  y:view.center.y + translation.y)
+        //        }
+        //        recognizer.setTranslation(CGPointZero, inView: self.view)
+        
+        let touch = event.touchesForView(button)!.first!  //touches(forView: button)!.first!
+        // get delta
+        let previousLocation = touch.previousLocationInView(button)//    .previousLocation(inView: button)
+        let location = touch.locationInView(button)   //.location(inView: button)
+        let delta_x: CGFloat = location.x - previousLocation.x
+        let delta_y: CGFloat = location.y - previousLocation.y
+        // move button
+        button.center = CGPoint(x: button.center.x + delta_x, y: button.center.y + delta_y)
+        
+    }
+
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "ConfigureSegue"
+        {
+            let pickVC = segue.destinationViewController as! LayoutConfigTableViewController
+            pickVC.delegate = self
+        }
+        
+    }
+
+
+    
     func configureDatabase()
     {
         ref = FIRDatabase.database().reference()
@@ -166,7 +259,6 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Listen for new messages from Firebase
         //  refHandle = ref.child(uniqueSessionID).observeEventType(.ChildAdded, withBlock: {
         
-        /*refHandle =*/
         
         ref.child("messages").observeEventType(.Value, withBlock: {
             (snapshot) -> Void in
@@ -189,6 +281,18 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    func musicianWasChosen(pickedMusician: Musician)
+    {
+        // dismiss(animated: true, completion: nil)
+        
+        arrayOfMusicians.append(pickedMusician)
+        //remainingTimeZones.remove(at: theIndex)
+        //tableView.reloadData()
+        
+    }
+    
+
+    
     
     
     
@@ -201,19 +305,18 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let msg = message
         {
             if msg.characters.count > 0
-                
                
             {
                 if let username = AppState.sharedInstance.displayName
                 {
                     let messageData = Message(request: msg, name: username, completed: completed, removeRequest: removeRequest)
-                    let requestRef = self.ref.child("messages").childByAutoId()
-                   // requestRef.setValue(["request": msg, "name": username, "completed": completed, "removeRequest": removeRequest])
+                   // let requestRef = self.ref.child("messages").childByAutoId()
                     
                     
                     ref.child("messages").childByAutoId().setValue(["request": msg, "name": username, "completed": completed, "removeRequest": removeRequest])
                     self.arrayOfMessages.append(messageData)
                     self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: self.arrayOfMessages.count-1, inSection: 0)], withRowAnimation: .Automatic)
+                    
                     //Push to Firebase Database
                     
                     // ref.child(uniqueSessionID).childByAutoId().setValue(messageData)
@@ -230,13 +333,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
-        
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-       // return messages.count
         return arrayOfMessages.count
     }
     
@@ -245,39 +345,19 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! MessageCell
         // Unpack message from Firebase DataSnapshot
         
-       // var aRequest: Message
-        
-       // let messageSnapshot = self.messages[indexPath.row]
         let thisRequest = self.arrayOfMessages[indexPath.row]
         
-       // let aRequest: Message = Message() //  convertSnapshotToMessage(messageSnapshot)
-        
-//      if let newRequest = Message.convertSnapshotToMessage(messageSnapshot)
-/*
-        let message = messageSnapshot.value as! Dictionary<String, AnyObject>
-        if let name = message["name"], let text = message["text"], let completed = message["completed"], let removeRequest = message["removeRequest"]
             
-        {
-*/
-//      {
-        
-            
-            //cell.requestLabel.text = newRequest.request
         cell.requestLabel.text = thisRequest.request
         
-            //if newRequest.completed == true
             if thisRequest.completed == true
             {
                 cell.checkButton.setImage(checkImage, forState: .Normal)
-               // cell.checkButton.imageView!.image = UIImage(named: checkImageName)
             }
             else if thisRequest.completed == false
-           // else if newRequest.completed == false
             {
                 cell.checkButton.setImage(unCheckImage, forState: .Normal)
-              //  cell.checkButton.imageView!.image = UIImage(named: unCheckImageName)
             }
-//        }
         
         return cell
         
@@ -314,13 +394,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
-//    func prepareForReuse()
-//    {
-//       let cell = MessageCell()
-//        cell.requestLabel.text = ""
-//        cell.checkButton.setImage(unCheckImage, forState: .Normal)
-//       
-//    }
+
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -328,54 +402,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.cellForRowAtIndexPath(indexPath)!
         
         var aRequest: Message
-      //  var foundMessage: FIRDataSnapshot?
+     
         let snapshotToUpdate = messages[indexPath.row]
-        
-        
-
-    //    aRequest = convertSnapshotToMessage(snapshotToUpdate)
-    //    aRequest.completed = !aRequest.completed
-        
-        var updatedMessage = snapshotToUpdate.value as! Dictionary<String, AnyObject>
-     //   updatedMessage = ["completed": aRequest.completed]
-      //  print(aRequest.completed)
-       // snapshotToUpdate.ref.updateChildValues(updatedMessage)
-      //  print("line 354")
-        
-//        if aRequest.completed
-//        {
-//            cell.textLabel?.textColor = UIColor.greenColor()
-//            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-//            cell.accessoryView?.tintColor = UIColor.greenColor()
-//            
-//        }
-//        else
-//        {
-//            cell.textLabel?.textColor = UIColor.blackColor()
-//            cell.accessoryType = UITableViewCellAccessoryType.None
-//        }
-        
-      //  let updatedRequest = Message.convertMessageToSnapshot(aRequest) as! Dictionary<String, AnyObject>
-       // aRequest.convertMessageToSnapshot(aMsg: Message)
-
-        
-        // updatedMessage = ["completed": true]
-        // snapshotToUpdate.ref.updateChildValues(updatedMessage)
-        
-        //snapshotToUpdate.ref.removeValue()
-        
-        //    let messageSnapshot = self.messages[indexPath.row]
-        //    let message = messageSnapshot.value as! Dictionary<String, String>
-        
-        //    refToDelete.ref.updateChildValues(message)
-   
- /*
-       toggledCompletion = !toggledCompletion
-        let tempBool = toggledCompletion
-        updatedMessage = ["completed": tempBool]
-        snapshotToUpdate.ref.updateChildValues(updatedMessage)
-        toggleCellCheckbox(cell, isCompleted: toggledCompletion)
-  */
         
        // tableView.reloadData()
     }
@@ -552,15 +580,15 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
-    func buttonPressed(sender: UIButton)
-    {
-        
-        chatTextField.text = chatTextField.text! + sender.currentTitle!
-        // print("piano?")
-        
-        
-        
-    }
+//    func buttonPressed(sender: UIButton)
+//    {
+//        
+//        chatTextField.text = chatTextField.text! + sender.currentTitle!
+//        // print("piano?")
+//        
+//        
+//        
+//    }
     
     @IBAction func requestTapped(sender: UIButton)
     {
