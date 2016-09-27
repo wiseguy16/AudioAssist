@@ -14,15 +14,18 @@ protocol PickMusicianDelegate
     func musicianWasChosen(pickedMusician: Musician)
 }
 
-class LayoutViewController: UIViewController, PickMusicianDelegate
+
+class LayoutViewController: UIViewController, PickMusicianDelegate,  UIGestureRecognizerDelegate
 {
     var arrayOfMusicians: [Musician] = []
+    var location = CGPoint(x: 0, y: 0)
     
 
     @IBOutlet weak var newTextField: UITextField!
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         
         configureMusicians()
 
@@ -64,6 +67,10 @@ class LayoutViewController: UIViewController, PickMusicianDelegate
                 
             aButton.tag = item.uniqueID
             self.view.addSubview(aButton)
+                let panGesture = UIPanGestureRecognizer()
+              //  panGesture.delegate = self
+                aButton.addGestureRecognizer(panGesture)
+                aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
                 let aLabel = UILabel()
                 aLabel.frame = CGRect(x: item.positionX, y: item.positionY - 15, width: item.width, height: 15)
                 aLabel.text = item.name
@@ -83,6 +90,57 @@ class LayoutViewController: UIViewController, PickMusicianDelegate
         
         
         
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        if let touch =  touches.first{
+            location = touch.locationInView(self.view)
+            print("\(touch)")
+        }
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        if let touch = touches.first{
+            location = touch.locationInView(self.view)
+            print("\(touch)")
+        }
+        super.touchesEnded(touches, withEvent: event)
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        if let touch = touches.first{
+            location = touch.locationInView(self.view)
+            print("\(touch)")
+        }
+        super.touchesMoved(touches, withEvent: event)
+    }
+    
+    
+    
+    //func buttonDragged(recognizer:UIPanGestureRecognizer)
+    func buttonDragged(button: UIButton, event: UIEvent)
+    {
+//        // get the touch
+//        let translation = recognizer.translationInView(self.view)
+//        if let view = recognizer.view {
+//            view.center = CGPoint(x:view.center.x + translation.x,
+//                                  y:view.center.y + translation.y)
+//        }
+//        recognizer.setTranslation(CGPointZero, inView: self.view)
+
+        let touch = event.touchesForView(button)!.first!  //touches(forView: button)!.first!
+        // get delta
+        let previousLocation = touch.previousLocationInView(button)//    .previousLocation(inView: button)
+        let location = touch.locationInView(button)   //.location(inView: button)
+        let delta_x: CGFloat = location.x - previousLocation.x
+        let delta_y: CGFloat = location.y - previousLocation.y
+        // move button
+        button.center = CGPoint(x: button.center.x + delta_x, y: button.center.y + delta_y)
+    
     }
     
     func musicianWasChosen(pickedMusician: Musician)

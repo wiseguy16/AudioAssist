@@ -23,6 +23,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
      var start: CGPoint?
     var newCenter: CGPoint?
     
+    
+    @IBOutlet weak var tableviewWidthConstraint: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var pianoLabel: UILabel!
     
     @IBOutlet weak var chatTextField: UITextField!
@@ -39,12 +43,14 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var guitarPan: UIPanGestureRecognizer!
     
     @IBOutlet weak var handLeftButton: UIButton!
+    
     @IBOutlet weak var drums: UIImageView!
     @IBOutlet weak var elecGuitar: UIImageView!
     @IBOutlet weak var keys: UIImageView!
     @IBOutlet weak var piano: UIImageView!
     @IBOutlet weak var click: UIImageView!
     @IBOutlet weak var acoGuitar: UIImageView!
+    
     @IBOutlet weak var handUp: UIImageView!
     @IBOutlet weak var handDown: UIImageView!
     @IBOutlet weak var handLeft: UIImageView!
@@ -55,6 +61,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var iconLabel: UILabel!
     var canMoveIcons = false
     var toggledCompletion = false
+    var requestsHidden = true
     
     var isChecked = false
     
@@ -220,11 +227,15 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - Tableview required methods
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
         return 1
+        
+        
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
        // return messages.count
         return arrayOfMessages.count
     }
@@ -479,17 +490,21 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func hideTapped(sender: UIButton)
     {
-        
-        canMoveIcons = !canMoveIcons
-        if canMoveIcons
+       //self.tableview.alpha = 1   //.animateWithDuration(0.3, animations: .CurveEaseOut)
+        requestsHidden = !requestsHidden
+        if requestsHidden
         {
-            unlockLabel.setTitle("Icons Unlocked", forState: .Normal)
+            unlockLabel.setTitle("Show Requests", forState: .Normal)
             unlockLabel.setTitleColor(UIColor.redColor(), forState: .Normal)
+            tableviewWidthConstraint.constant = 0
+            
+            
         }
         else
         {
-            unlockLabel.setTitle("Icons Locked", forState: .Normal)
+            unlockLabel.setTitle("Hide Requests", forState: .Normal)
             unlockLabel.setTitleColor(UIColor.blackColor(), forState: .Normal)
+            tableviewWidthConstraint.constant = (view.bounds.width * 0.3)
         }
         //        if chatTextField.isFirstResponder()
         //        {
