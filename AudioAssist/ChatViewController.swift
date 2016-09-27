@@ -25,6 +25,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     var arrayOfMusicians: [Musician] = []
     var location = CGPoint(x: 0, y: 0)
+    var hasBeenDisplayedOnce = false
     
     @IBOutlet weak var stageBackground: UIImageView!
     //var location = CGPoint(x: 0, y: 0)
@@ -297,30 +298,34 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     func displayMusiciansFromDatabase()
     {
-        for item in arrayOfMusicians
+        if hasBeenDisplayedOnce == false
         {
-            if item.hasBeenDrawn == false && item.doesExist == true
+            for item in arrayOfMusicians
             {
-                let aButton = UIButton()
-                aButton.frame = CGRect(x: item.positionX, y: item.positionY, width: item.width + 10, height: item.height)
-                aButton.setImage(UIImage(named: item.iconImage), forState: .Normal)
-                aButton.setTitle(item.name, forState: .Normal)
-                aButton.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
-                
-                aButton.tag = item.uniqueID
-                self.view.addSubview(aButton)
-                let panGesture = UIPanGestureRecognizer()
-                //  panGesture.delegate = self
-                aButton.addGestureRecognizer(panGesture)
-                aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
-                let aLabel = UILabel()
-                aLabel.frame = CGRect(x: item.positionX, y: item.positionY - 15, width: item.width, height: 15)
-                aLabel.text = item.name
-                aLabel.textColor = UIColor.blackColor()
-                self.view.addSubview(aLabel)
-                item.hasBeenDrawn = true
-                print("\(arrayOfMusicians.count)")
+                if item.hasBeenDrawn == false && item.doesExist == true
+                {
+                    let aButton = UIButton()
+                    aButton.frame = CGRect(x: item.positionX, y: item.positionY, width: item.width + 10, height: item.height)
+                    aButton.setImage(UIImage(named: item.iconImage), forState: .Normal)
+                    aButton.setTitle(item.name, forState: .Normal)
+                    aButton.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
+                    
+                    aButton.tag = item.uniqueID
+                    self.view.addSubview(aButton)
+                    let panGesture = UIPanGestureRecognizer()
+                    //  panGesture.delegate = self
+                    aButton.addGestureRecognizer(panGesture)
+                    aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
+                    let aLabel = UILabel()
+                    aLabel.frame = CGRect(x: item.positionX, y: item.positionY - 15, width: item.width, height: 15)
+                    aLabel.text = item.name
+                    aLabel.textColor = UIColor.blackColor()
+                    self.view.addSubview(aLabel)
+                    item.hasBeenDrawn = true
+                    print("\(arrayOfMusicians.count)")
+                }
             }
+            hasBeenDisplayedOnce = true
         }
         /*
         let testMusician = arrayOfMusicians[0]
