@@ -61,7 +61,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 1",
+             "name": "🎙singer 1",
              "iconImage":"man-1",
              "titleForLabel":"singer 1",
              "positionX": 85,
@@ -73,7 +73,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 2",
+             "name": "🎙singer 2",
              "iconImage":"woman-1",
              "titleForLabel":"singer 2",
              "positionX": 170,
@@ -85,7 +85,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 3",
+             "name": "🎙singer 3",
              "iconImage":"man-2",
              "titleForLabel":"singer 3",
              "positionX": 255,
@@ -97,7 +97,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 4",
+             "name": "🎙singer 4",
              "iconImage":"woman-2",
              "titleForLabel":"singer 4",
              "positionX": 340,
@@ -109,7 +109,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 5",
+             "name": "🎙singer 5",
              "iconImage":"man-3",
              "titleForLabel":"singer 5",
              "positionX": 430,
@@ -121,7 +121,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 6",
+             "name": "🎙singer 6",
              "iconImage":"woman-3",
              "titleForLabel":"singer 6",
              "positionX": 520,
@@ -133,7 +133,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 7",
+             "name": "🎙singer 7",
              "iconImage":"man-4",
              "titleForLabel":"singer 8",
              "positionX": 605,
@@ -145,7 +145,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 8",
+             "name": "🎙singer 8",
              "iconImage":"woman-4",
              "titleForLabel":"singer 8",
              "positionX": 690,

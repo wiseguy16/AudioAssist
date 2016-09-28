@@ -23,7 +23,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stageOverheadCropped" translatesAutoresizingMaskIntoConstraints="NO" id="ir1-lQ-ldL">
                                 <rect key="frame" x="0.0" y="72" width="600" height="520"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="chat here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odq-Bt-2M1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="chat here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odq-Bt-2M1">
                                 <rect key="frame" x="28" y="84" width="500" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -31,11 +31,11 @@
                                     <outlet property="delegate" destination="rif-mq-ybG" id="h4m-Hc-iSk"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyr-0S-ZY1">
-                                <rect key="frame" x="540" y="80" width="52" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyr-0S-ZY1">
+                                <rect key="frame" x="529" y="80" width="63" height="40"/>
                                 <color key="backgroundColor" red="0.97260671854019165" green="0.97359186410903931" blue="0.91518259048461914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                <state key="normal" title="Send">
+                                <state key="normal" title=" Send " backgroundImage="Unchecked.png">
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -138,10 +138,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-7s-ozu">
-                                <rect key="frame" x="304" y="529" width="50" height="50"/>
+                                <rect key="frame" x="304" y="537" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ewW-C1-tCN"/>
-                                    <constraint firstAttribute="width" constant="50" id="ySN-kh-P0O"/>
+                                    <constraint firstAttribute="height" constant="35" id="ewW-C1-tCN"/>
+                                    <constraint firstAttribute="width" constant="35" id="ySN-kh-P0O"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="needs↖️panned left " image="diagonal-arrow-1"/>
@@ -150,10 +150,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJl-aI-GPs">
-                                <rect key="frame" x="374" y="529" width="50" height="50"/>
+                                <rect key="frame" x="359" y="537" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="bPx-99-huR"/>
-                                    <constraint firstAttribute="width" constant="50" id="dQ6-aM-ok3"/>
+                                    <constraint firstAttribute="height" constant="35" id="bPx-99-huR"/>
+                                    <constraint firstAttribute="width" constant="35" id="dQ6-aM-ok3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="needs↗️panned right" image="diagonal-arrow-3"/>
@@ -687,6 +687,7 @@
     <resources>
         <image name="Hand Down-48.png" width="48" height="48"/>
         <image name="Hand Up-48.png" width="48" height="48"/>
+        <image name="Unchecked.png" width="40" height="40"/>
         <image name="diagonal-arrow-1" width="512" height="512"/>
         <image name="diagonal-arrow-3" width="512" height="512"/>
         <image name="electric-guitar.png" width="128" height="128"/>

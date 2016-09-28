@@ -105,6 +105,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         configureDatabase()
         
         configureMusicians()
+        
+       
 //        displayMusiciansFromDatabase()
 //        let testMusician = arrayOfMusicians[0]
 //        let tButton = UIButton()
@@ -198,9 +200,9 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 
                 aButton.tag = item.uniqueID
                 self.view.addSubview(aButton)
-                let panGesture = UILongPressGestureRecognizer()
+                let longPrssGesture = UILongPressGestureRecognizer()
                 //  panGesture.delegate = self
-                aButton.addGestureRecognizer(panGesture)
+                aButton.addGestureRecognizer(longPrssGesture)
                 aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
                 let aLabel = UILabel()
                 aLabel.frame = CGRect(x: 0, y: -20, width: item.width, height: 15)
@@ -217,6 +219,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
 
     @IBAction func lockToggled(sender: UISwitch)
     {
+        
         if lockSwitch.on
         {
           lockLabel.text = "Icons locked"
@@ -358,9 +361,9 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     
                     aButton.tag = item.uniqueID
                     self.view.addSubview(aButton)
-                    let panGesture = UILongPressGestureRecognizer()
+                    let longPrssGesture = UILongPressGestureRecognizer()
                     //  panGesture.delegate = self
-                    aButton.addGestureRecognizer(panGesture)
+                    aButton.addGestureRecognizer(longPrssGesture)
                     
                     aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
                     
@@ -427,6 +430,10 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         //tableView.reloadData()
     }
     
+    func doubleTappedWasInitiated()
+    {
+        
+    }
 
     
     
