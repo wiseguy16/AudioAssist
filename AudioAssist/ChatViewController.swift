@@ -24,17 +24,20 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
 {
     
     var arrayOfMusicians: [Musician] = []
-    var location = CGPoint(x: 0, y: 0)
+   // var location = CGPoint(x: 0, y: 0)
     var hasBeenDisplayedOnce = false
     
     @IBOutlet weak var stageBackground: UIImageView!
-    //var location = CGPoint(x: 0, y: 0)
      var start: CGPoint?
     var newCenter: CGPoint?
     
     
+    
+    
     @IBOutlet weak var tableviewWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var lockLabel: UILabel!
+    @IBOutlet weak var lockSwitch: UISwitch!
     
     @IBOutlet weak var pianoLabel: UILabel!
     
@@ -74,7 +77,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     var isChecked = false
     
-    var handRightButton = UIButton()
+   
     
     let checkImage = UIImage(named: "checkedRequest.png")
     let unCheckImage = UIImage(named: "uncheckedRequest.png")
@@ -195,7 +198,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 
                 aButton.tag = item.uniqueID
                 self.view.addSubview(aButton)
-                let panGesture = UIPanGestureRecognizer()
+                let panGesture = UILongPressGestureRecognizer()
                 //  panGesture.delegate = self
                 aButton.addGestureRecognizer(panGesture)
                 aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
@@ -212,13 +215,28 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         }
     }
 
+    @IBAction func lockToggled(sender: UISwitch)
+    {
+        if lockSwitch.on
+        {
+          lockLabel.text = "Icons locked"
+        }
+        else if !lockSwitch.on
+        {
+            lockLabel.text = "Icons unlocked"
+        }
+    }
     
     
     func buttonPressed(sender: UIButton)
     {
         
-        
+        if lockSwitch.on
+        {
+            
         chatTextField.text = chatTextField.text! + " " + sender.currentTitle!
+            
+        }
     }
     
     func buttonDragged(button: UIButton, event: UIEvent)
@@ -231,6 +249,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         //        }
         //        recognizer.setTranslation(CGPointZero, inView: self.view)
         
+        if !lockSwitch.on
+        {
         let touch = event.touchesForView(button)!.first!  //touches(forView: button)!.first!
         // get delta
         let previousLocation = touch.previousLocationInView(button)//    .previousLocation(inView: button)
@@ -239,6 +259,29 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         let delta_y: CGFloat = location.y - previousLocation.y
         // move button
         button.center = CGPoint(x: button.center.x + delta_x, y: button.center.y + delta_y)
+            
+            
+            for thisButton in arrayOfMusicians
+            {
+                if button.tag == thisButton.uniqueID
+                {
+                    thisButton.positionX = Int(button.center.x + delta_x - 34)
+                    thisButton.positionY = Int(button.center.y + delta_y - 34)
+                    let updatedMessage = ["positionX": thisButton.positionX, "positionY": thisButton.positionY]
+                    print("\(thisButton.positionX)")
+                    print("\(thisButton.positionY)")
+                    
+                    thisButton.ref?.updateChildValues(updatedMessage)
+                }
+            }
+//            let contentView = button.superview
+//            //let thisButton = contentView?.superview as! Musician
+//            
+//            let thisIndexPath = self.arrayOfMusicians.
+//            
+//            let myDone = arrayOfMessages[thisIndexPath!.row]
+//            // var aSnap = messages[thisIndexPath!.row]
+        }
         
     }
 
@@ -493,12 +536,12 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         // 1
-        let cell = tableView.cellForRowAtIndexPath(indexPath)!
-        
-        var aRequest: Message
-     
-        let snapshotToUpdate = messages[indexPath.row]
-        
+//        let cell = tableView.cellForRowAtIndexPath(indexPath)!
+//        
+//        var aRequest: Message
+//     
+//        let snapshotToUpdate = messages[indexPath.row]
+//        
        // tableView.reloadData()
     }
     
@@ -553,7 +596,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         let cell = contentView?.superview as! MessageCell
         let thisIndexPath = tableview.indexPathForCell(cell)
         
-        var myDone = arrayOfMessages[thisIndexPath!.row]
+        let myDone = arrayOfMessages[thisIndexPath!.row]
        // var aSnap = messages[thisIndexPath!.row]
         
        // let aRequest = Message()
@@ -568,7 +611,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         {
             sender.setImage(unCheckImage, forState: .Normal)
         }
-        var updatedMessage = ["completed": myDone.completed]
+        let updatedMessage = ["completed": myDone.completed]
         myDone.ref?.updateChildValues(updatedMessage)
         
     }
@@ -684,7 +727,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     @IBAction func requestTapped(sender: UIButton)
     {
-        chatTextField.text = chatTextField.text! + sender.currentTitle!
+        chatTextField.text = chatTextField.text! + " " + sender.currentTitle!
         print("piano?")
         
     }
@@ -958,36 +1001,5 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
 //    }
 
 
-
-
-
-
-//    func convertMessageToSnapshot(aMsg: Message) -> [String: AnyObject]
-//    {
-//
-//        let name = aMsg.name
-//        let request = aMsg.request
-//        let completed = aMsg.completed
-//        let removeRequest = aMsg.removeRequest
-//
-//        let messageData = ["name": name, "text": request, "completed": completed, "removeRequest": removeRequest]
-//
-//        return messageData as! [String : AnyObject]
-//
-//    }
-
-//    func convertSnapshotToMessage(aSnap: FIRDataSnapshot) -> Message
-//    {
-//        let aMessage = Message()
-//        let message = aSnap.value as! Dictionary<String, AnyObject>
-//        if let name = message["name"], let request = message["text"], let completed = message["completed"], let removeRequest = message["removeRequest"]
-//        {
-//            aMessage.name = name as! String
-//            aMessage.request = request as! String
-//            aMessage.completed = completed as! Bool
-//            aMessage.removeRequest = removeRequest as! Bool
-//        }
-//        return aMessage
-//    }
 
 

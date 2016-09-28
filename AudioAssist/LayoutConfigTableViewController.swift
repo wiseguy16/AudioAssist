@@ -13,8 +13,8 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
       var delegate: PickMusicianDelegate?
     
     var arrayOfOptions = [Musician]()
-    var uniqueTagID = 1000
-
+    var uniqueTagID = arc4random()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMusicianOptions()
@@ -70,7 +70,7 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         
         let thisIndexPath = self.tableView?.indexPathForCell(cell)
         let aMusician = arrayOfOptions[thisIndexPath!.row]
-        aMusician.uniqueID = uniqueTagID
+        aMusician.uniqueID = Int(uniqueTagID)
         delegate!.musicianWasChosen(aMusician)
 
         
