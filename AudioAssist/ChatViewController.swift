@@ -31,7 +31,9 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
      var start: CGPoint?
     var newCenter: CGPoint?
     
+    @IBOutlet weak var backgroundForMovableIcons: UIView!
     
+    @IBOutlet weak var deleteIconsSwitch: UISwitch!
     
     
     @IBOutlet weak var tableviewWidthConstraint: NSLayoutConstraint!
@@ -201,9 +203,15 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 aButton.tag = item.uniqueID
                 self.view.addSubview(aButton)
                 let longPrssGesture = UILongPressGestureRecognizer()
-                //  panGesture.delegate = self
                 aButton.addGestureRecognizer(longPrssGesture)
                 aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
+                
+                let dubTapGesture = UITapGestureRecognizer()
+                dubTapGesture.numberOfTapsRequired = 2
+                aButton.addGestureRecognizer(dubTapGesture)
+                aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
+                
+                
                 let aLabel = UILabel()
                 aLabel.frame = CGRect(x: 0, y: -20, width: item.width, height: 15)
                 aLabel.text = item.name
@@ -216,17 +224,35 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
             }
         }
     }
+    
+    
+    @IBAction func deleteSwitch(sender: UISwitch)
+    {
+        
+        if deleteIconsSwitch.on
+        {
+            backgroundForMovableIcons.backgroundColor = UIColor.redColor()
+            backgroundForMovableIcons.alpha = 0.2
+        }
+        else if !deleteIconsSwitch.on
+        {
+            backgroundForMovableIcons.alpha = 0
+        }
+    }
 
     @IBAction func lockToggled(sender: UISwitch)
     {
         
         if lockSwitch.on
         {
-          lockLabel.text = "Icons locked"
+            lockLabel.text = "Icons locked"
+            backgroundForMovableIcons.alpha = 0
         }
         else if !lockSwitch.on
         {
             lockLabel.text = "Icons unlocked"
+            backgroundForMovableIcons.backgroundColor = UIColor.yellowColor()
+            backgroundForMovableIcons.alpha = 0.2
         }
     }
     
@@ -234,7 +260,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     func buttonPressed(sender: UIButton)
     {
         
-        if lockSwitch.on
+        if lockSwitch.on && !deleteIconsSwitch.on
         {
             
         chatTextField.text = chatTextField.text! + " " + sender.currentTitle!
@@ -362,10 +388,14 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     aButton.tag = item.uniqueID
                     self.view.addSubview(aButton)
                     let longPrssGesture = UILongPressGestureRecognizer()
+                    let dubTapGesture = UITapGestureRecognizer()
+                    dubTapGesture.numberOfTapsRequired = 2
                     //  panGesture.delegate = self
                     aButton.addGestureRecognizer(longPrssGesture)
+                    aButton.addGestureRecognizer(dubTapGesture)
                     
                     aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
+                    aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
                     
                     let aLabel = UILabel()
                     aLabel.frame = CGRect(x: 0, y: -17, width: item.width, height: 15)
@@ -430,8 +460,22 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         //tableView.reloadData()
     }
     
-    func doubleTappedWasInitiated()
+    func doubleTappedWasInitiated(aButton: UIButton)
     {
+        if deleteIconsSwitch.on
+        {
+            for thisButton in arrayOfMusicians
+            {
+                if aButton.tag == thisButton.uniqueID
+                {
+                    print("\(thisButton.positionX)")
+                    aButton.removeFromSuperview()
+                    
+                    thisButton.ref?.removeValue()
+                }
+            }
+
+        }
         
     }
 

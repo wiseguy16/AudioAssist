@@ -23,6 +23,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stageOverheadCropped" translatesAutoresizingMaskIntoConstraints="NO" id="ir1-lQ-ldL">
                                 <rect key="frame" x="0.0" y="72" width="600" height="520"/>
                             </imageView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B6-8M-WPg">
+                                <rect key="frame" x="0.0" y="72" width="600" height="528"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="chat here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odq-Bt-2M1">
                                 <rect key="frame" x="28" y="84" width="500" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -103,6 +107,20 @@
                                     <outlet property="delegate" destination="rif-mq-ybG" id="jFu-Se-gfk"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fq-yI-dZZ">
+                                <rect key="frame" x="144" y="520" width="68" height="68"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="H3p-rZ-zGJ"/>
+                                    <constraint firstAttribute="width" constant="68" id="vGm-Xa-hVv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="needs👆more" image="Hand Up-48.png"/>
+                                <connections>
+                                    <action selector="requestTapped:" destination="rif-mq-ybG" eventType="touchUpInside" id="DxH-IX-2yZ"/>
+                                    <outletCollection property="gestureRecognizers" destination="Nv5-jc-Bco" appends="YES" id="N6V-z8-SdZ"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-fd-anj">
                                 <rect key="frame" x="224" y="520" width="68" height="68"/>
                                 <gestureRecognizers/>
@@ -117,6 +135,18 @@
                                     <outletCollection property="gestureRecognizers" destination="40T-Ib-EZB" appends="YES" id="zGN-yr-p2s"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Icons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNT-aP-KxY">
+                                <rect key="frame" x="24" y="398" width="76" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nhg-pk-Rtt">
+                                <rect key="frame" x="37" y="422" width="51" height="31"/>
+                                <connections>
+                                    <action selector="deleteSwitch:" destination="rif-mq-ybG" eventType="valueChanged" id="kaZ-5f-jzr"/>
+                                </connections>
+                            </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIw-Eg-7nh">
                                 <rect key="frame" x="37" y="497" width="51" height="31"/>
                                 <constraints>
@@ -161,20 +191,6 @@
                                     <action selector="requestTapped:" destination="rif-mq-ybG" eventType="touchUpInside" id="XKL-pF-q4H"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fq-yI-dZZ">
-                                <rect key="frame" x="144" y="520" width="68" height="68"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="H3p-rZ-zGJ"/>
-                                    <constraint firstAttribute="width" constant="68" id="vGm-Xa-hVv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="needs👆more" image="Hand Up-48.png"/>
-                                <connections>
-                                    <action selector="requestTapped:" destination="rif-mq-ybG" eventType="touchUpInside" id="DxH-IX-2yZ"/>
-                                    <outletCollection property="gestureRecognizers" destination="Nv5-jc-Bco" appends="YES" id="N6V-z8-SdZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -185,6 +201,10 @@
                             <constraint firstItem="eGF-jT-g9T" firstAttribute="top" secondItem="rdb-lz-UQm" secondAttribute="top" id="26N-f9-OLg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eGF-jT-g9T" secondAttribute="trailing" constant="-20" id="2VO-F7-lFy"/>
                             <constraint firstItem="ir1-lQ-ldL" firstAttribute="leading" secondItem="rdb-lz-UQm" secondAttribute="leadingMargin" id="5Fl-Tn-gAF"/>
+                            <constraint firstItem="3B6-8M-WPg" firstAttribute="leading" secondItem="ir1-lQ-ldL" secondAttribute="leading" id="5TH-Yc-0Dp"/>
+                            <constraint firstItem="3B6-8M-WPg" firstAttribute="bottom" secondItem="ir1-lQ-ldL" secondAttribute="bottom" id="5hs-RD-e3s"/>
+                            <constraint firstItem="3B6-8M-WPg" firstAttribute="trailing" secondItem="ir1-lQ-ldL" secondAttribute="trailing" id="5il-ew-2Kj"/>
+                            <constraint firstItem="Nhg-pk-Rtt" firstAttribute="top" secondItem="NNT-aP-KxY" secondAttribute="bottom" constant="8" id="5p4-2j-Su1"/>
                             <constraint firstItem="PsI-4e-Qcs" firstAttribute="top" secondItem="7Fq-yI-dZZ" secondAttribute="bottom" constant="12" id="62g-zk-pl0"/>
                             <constraint firstItem="7Fq-yI-dZZ" firstAttribute="centerX" secondItem="f21-x9-by7" secondAttribute="centerX" id="79D-YM-2Xq"/>
                             <constraint firstItem="hyr-0S-ZY1" firstAttribute="leading" secondItem="odq-Bt-2M1" secondAttribute="trailing" constant="4" id="7Zv-v3-jDj"/>
@@ -194,6 +214,7 @@
                             <constraint firstItem="PsI-4e-Qcs" firstAttribute="top" secondItem="eyN-7s-ozu" secondAttribute="bottom" constant="20" id="D3u-QW-9XX"/>
                             <constraint firstItem="odq-Bt-2M1" firstAttribute="width" secondItem="rdb-lz-UQm" secondAttribute="width" multiplier="0.9" id="DQf-Oh-0nY"/>
                             <constraint firstItem="odq-Bt-2M1" firstAttribute="top" secondItem="eGF-jT-g9T" secondAttribute="bottom" constant="8" id="EeS-Y6-naG"/>
+                            <constraint firstItem="3B6-8M-WPg" firstAttribute="top" secondItem="ir1-lQ-ldL" secondAttribute="top" id="GEF-TA-ovA"/>
                             <constraint firstItem="eGF-jT-g9T" firstAttribute="top" secondItem="rdb-lz-UQm" secondAttribute="topMargin" id="HYf-h8-9Vr"/>
                             <constraint firstItem="eyN-7s-ozu" firstAttribute="centerY" secondItem="TbW-fd-anj" secondAttribute="centerY" id="IwB-5D-lns"/>
                             <constraint firstItem="eyN-7s-ozu" firstAttribute="leading" secondItem="TbW-fd-anj" secondAttribute="trailing" constant="12" id="J9U-mZ-3Jr"/>
@@ -213,10 +234,14 @@
                             <constraint firstItem="hyr-0S-ZY1" firstAttribute="leading" secondItem="odq-Bt-2M1" secondAttribute="trailing" constant="8" id="Woz-jf-4N1"/>
                             <constraint firstItem="TbW-fd-anj" firstAttribute="centerY" secondItem="7Fq-yI-dZZ" secondAttribute="centerY" id="X8i-7l-VfS"/>
                             <constraint firstItem="PsI-4e-Qcs" firstAttribute="top" secondItem="f21-x9-by7" secondAttribute="bottom" constant="12" id="Xfh-K3-d0D"/>
+                            <constraint firstItem="NNT-aP-KxY" firstAttribute="centerX" secondItem="Nhg-pk-Rtt" secondAttribute="centerX" id="XwU-ro-9jW"/>
+                            <constraint firstAttribute="bottom" secondItem="3B6-8M-WPg" secondAttribute="bottom" id="XyY-Tq-5WF"/>
                             <constraint firstItem="ir1-lQ-ldL" firstAttribute="top" secondItem="MEc-WC-ugg" secondAttribute="bottom" constant="8" id="Yjm-MR-pPt"/>
                             <constraint firstItem="odq-Bt-2M1" firstAttribute="leading" secondItem="f21-x9-by7" secondAttribute="trailing" constant="8" id="ZZL-KV-L1j"/>
                             <constraint firstItem="PsI-4e-Qcs" firstAttribute="top" secondItem="odq-Bt-2M1" secondAttribute="bottom" constant="8" id="aDy-Ob-lSL"/>
                             <constraint firstItem="f21-x9-by7" firstAttribute="top" secondItem="XIw-Eg-7nh" secondAttribute="bottom" constant="30" id="aVV-KY-hxP"/>
+                            <constraint firstItem="hBU-1d-pyr" firstAttribute="top" secondItem="Nhg-pk-Rtt" secondAttribute="bottom" constant="20" id="ava-ql-ld4"/>
+                            <constraint firstItem="Nhg-pk-Rtt" firstAttribute="centerX" secondItem="XIw-Eg-7nh" secondAttribute="centerX" id="bSu-E8-vVq"/>
                             <constraint firstItem="PsI-4e-Qcs" firstAttribute="top" secondItem="ir1-lQ-ldL" secondAttribute="bottom" constant="8" id="d28-aN-iPe"/>
                             <constraint firstItem="eGF-jT-g9T" firstAttribute="leading" secondItem="rdb-lz-UQm" secondAttribute="leading" id="gHI-y5-C7U"/>
                             <constraint firstItem="7Fq-yI-dZZ" firstAttribute="centerY" secondItem="ir1-lQ-ldL" secondAttribute="centerY" id="gyk-zh-dwP"/>
@@ -235,19 +260,20 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="5hs-RD-e3s"/>
                                 <exclude reference="5Fl-Tn-gAF"/>
                                 <exclude reference="DQf-Oh-0nY"/>
                                 <exclude reference="EeS-Y6-naG"/>
                                 <exclude reference="ZZL-KV-L1j"/>
                                 <exclude reference="kLf-M0-WNm"/>
                                 <exclude reference="o49-kj-kIw"/>
-                                <exclude reference="79D-YM-2Xq"/>
-                                <exclude reference="V89-Hd-nSK"/>
-                                <exclude reference="gyk-zh-dwP"/>
                                 <exclude reference="7Zv-v3-jDj"/>
                                 <exclude reference="Woz-jf-4N1"/>
                                 <exclude reference="isn-ZS-pwt"/>
                                 <exclude reference="rK5-Vi-naK"/>
+                                <exclude reference="79D-YM-2Xq"/>
+                                <exclude reference="V89-Hd-nSK"/>
+                                <exclude reference="gyk-zh-dwP"/>
                                 <exclude reference="Rqn-bi-uGz"/>
                                 <exclude reference="1S2-3k-dgk"/>
                                 <exclude reference="NcI-NO-aV2"/>
@@ -278,8 +304,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backgroundForMovableIcons" destination="3B6-8M-WPg" id="c4q-d7-9nq"/>
                         <outlet property="bananaPan" destination="1Pn-Ii-gWi" id="gKn-4G-l9e"/>
                         <outlet property="chatTextField" destination="odq-Bt-2M1" id="0NS-Q4-cj8"/>
+                        <outlet property="deleteIconsSwitch" destination="Nhg-pk-Rtt" id="u9g-lm-hiU"/>
                         <outlet property="guitarPan" destination="B3H-Wa-Dx2" id="HW6-CU-tcY"/>
                         <outlet property="lockLabel" destination="hBU-1d-pyr" id="diH-E2-kBy"/>
                         <outlet property="lockSwitch" destination="XIw-Eg-7nh" id="fXf-zH-AWR"/>
