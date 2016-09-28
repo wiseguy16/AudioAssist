@@ -79,6 +79,16 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     var isChecked = false
     
+    
+    
+   
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ChatViewController.handleRefresh(_:)), forControlEvents: .ValueChanged)
+        
+        return refreshControl
+    }()
+    
    
     
     let checkImage = UIImage(named: "checkedRequest.png")
@@ -107,6 +117,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         configureDatabase()
         
         configureMusicians()
+        
+         self.tableview.addSubview(self.refreshControl)
         
        
 //        displayMusiciansFromDatabase()
@@ -160,6 +172,23 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         reloadMusicians()
+    }
+    
+       func handleRefresh(refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
+        for deleteObject in arrayOfMessages
+        {
+            if deleteObject.completed == true
+            {
+                deleteObject.ref!.removeValue()
+            }
+        }
+        
+
+        
+        self.tableview.reloadData()
+        refreshControl.endRefreshing()
     }
     
   
@@ -361,6 +390,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
             self.arrayOfMusicians = newArrayOfMusicians
             print(self.arrayOfMusicians)
             self.displayMusiciansFromDatabase()
+           // self.reloadMusicians()
             
             //    self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: self.arrayOfMessages.count-1, inSection: 0)], withRowAnimation: .Automatic)
             
@@ -406,6 +436,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     item.hasBeenDrawn = true
                     print("\(arrayOfMusicians.count)")
                 }
+                print(item.hasBeenDrawn)
             }
             hasBeenDisplayedOnce = true
         }
