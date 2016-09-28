@@ -200,10 +200,11 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 aButton.addGestureRecognizer(panGesture)
                 aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
                 let aLabel = UILabel()
-                aLabel.frame = CGRect(x: item.positionX, y: item.positionY - 15, width: item.width, height: 15)
+                aLabel.frame = CGRect(x: 0, y: -20, width: item.width, height: 15)
                 aLabel.text = item.name
                 aLabel.textColor = UIColor.blackColor()
-                self.view.addSubview(aLabel)
+                aLabel.sizeToFit()
+                aButton.addSubview(aLabel)
                 item.doesExist = true
                 sendMusicianToFirebase(item)
                 print("\(arrayOfMusicians.count)")
@@ -302,7 +303,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         {
             for item in arrayOfMusicians
             {
-                if item.hasBeenDrawn == false && item.doesExist == true
+                if item.hasBeenDrawn == false || item.doesExist == true
                 {
                     let aButton = UIButton()
                     aButton.frame = CGRect(x: item.positionX, y: item.positionY, width: item.width + 10, height: item.height)
@@ -315,12 +316,15 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     let panGesture = UIPanGestureRecognizer()
                     //  panGesture.delegate = self
                     aButton.addGestureRecognizer(panGesture)
+                    
                     aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
+                    
                     let aLabel = UILabel()
-                    aLabel.frame = CGRect(x: item.positionX, y: item.positionY - 15, width: item.width, height: 15)
+                    aLabel.frame = CGRect(x: 0, y: -20, width: item.width, height: 15)
                     aLabel.text = item.name
                     aLabel.textColor = UIColor.blackColor()
-                    self.view.addSubview(aLabel)
+                    aLabel.sizeToFit()
+                    aButton.addSubview(aLabel)
                     item.hasBeenDrawn = true
                     print("\(arrayOfMusicians.count)")
                 }
@@ -722,16 +726,16 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         //        let tempString = myButton.currentTitle!
         //        print(tempString)
         
-        let handRight = UIImage(named: "Hand Right-48.png")
-        let handView = UIImageView(image: handRight)
-        handView.frame = CGRect(x: newPoint.x, y: newPoint.y, width: 68, height: 68)
-        self.view.addSubview(handView)
+//        let handRight = UIImage(named: "Hand Right-48.png")
+//        let handView = UIImageView(image: handRight)
+//        handView.frame = CGRect(x: newPoint.x, y: newPoint.y, width: 68, height: 68)
+//        self.view.addSubview(handView)
         
         // newLabel2.text = tempString
         
-        myButton.frame = CGRect(x: 40, y: 40, width: 100, height: 100)
-        super.viewWillLayoutSubviews()
-        view.addSubview(myButton)
+//        myButton.frame = CGRect(x: 40, y: 40, width: 100, height: 100)
+//        super.viewWillLayoutSubviews()
+//        view.addSubview(myButton)
     }
     
 
