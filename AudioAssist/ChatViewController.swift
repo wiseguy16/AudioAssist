@@ -216,6 +216,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     func buttonPressed(sender: UIButton)
     {
+        
+        
         chatTextField.text = chatTextField.text! + " " + sender.currentTitle!
     }
     
@@ -313,14 +315,14 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     
                     aButton.tag = item.uniqueID
                     self.view.addSubview(aButton)
-                    let panGesture = UIPanGestureRecognizer()
+                    let panGesture = UILongPressGestureRecognizer()
                     //  panGesture.delegate = self
                     aButton.addGestureRecognizer(panGesture)
                     
                     aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
                     
                     let aLabel = UILabel()
-                    aLabel.frame = CGRect(x: 0, y: -20, width: item.width, height: 15)
+                    aLabel.frame = CGRect(x: 0, y: -17, width: item.width, height: 15)
                     aLabel.text = item.name
                     aLabel.textColor = UIColor.blackColor()
                     aLabel.sizeToFit()
