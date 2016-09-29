@@ -235,10 +235,10 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 aButton.addGestureRecognizer(longPrssGesture)
                 aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
                 
-                let dubTapGesture = UITapGestureRecognizer()
-                dubTapGesture.numberOfTapsRequired = 2
-                aButton.addGestureRecognizer(dubTapGesture)
-                aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
+//                let dubTapGesture = UITapGestureRecognizer()
+//                dubTapGesture.numberOfTapsRequired = 2
+//                aButton.addGestureRecognizer(dubTapGesture)
+//                aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
                 
                 
                 let aLabel = UILabel()
@@ -416,13 +416,15 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     aButton.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
                     
                     aButton.tag = item.uniqueID
+                    print(item.uniqueID)
                     self.view.addSubview(aButton)
                     let longPrssGesture = UILongPressGestureRecognizer()
-                    let dubTapGesture = UITapGestureRecognizer()
-                    dubTapGesture.numberOfTapsRequired = 2
-                    //  panGesture.delegate = self
                     aButton.addGestureRecognizer(longPrssGesture)
-                    aButton.addGestureRecognizer(dubTapGesture)
+                    
+//                    let dubTapGesture = UITapGestureRecognizer()
+//                    dubTapGesture.numberOfTapsRequired = 2
+//                    //  panGesture.delegate = self
+//                    aButton.addGestureRecognizer(dubTapGesture)
                     
                     aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
                     aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
@@ -749,7 +751,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         {
             unlockLabel.setTitle("Hide Requests", forState: .Normal)
             unlockLabel.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            tableviewWidthConstraint.constant = (view.bounds.width * 0.3)
+            tableviewWidthConstraint.constant = (view.bounds.width * 0.4)
         }
         //        if chatTextField.isFirstResponder()
         //        {

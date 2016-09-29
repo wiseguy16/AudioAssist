@@ -61,7 +61,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙singer 1",
+             "name": "🎙Brett",
              "iconImage":"man-1",
              "titleForLabel":"singer 1",
              "positionX": 85,
@@ -73,7 +73,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙singer 2",
+             "name": "🎙Michelle",
              "iconImage":"woman-1",
              "titleForLabel":"singer 2",
              "positionX": 170,
@@ -85,7 +85,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙singer 3",
+             "name": "🎙Jack",
              "iconImage":"man-2",
              "titleForLabel":"singer 3",
              "positionX": 255,
@@ -97,7 +97,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙singer 4",
+             "name": "🎙Katie",
              "iconImage":"woman-2",
              "titleForLabel":"singer 4",
              "positionX": 340,
@@ -109,7 +109,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙singer 5",
+             "name": "🎙TJ",
              "iconImage":"man-3",
              "titleForLabel":"singer 5",
              "positionX": 430,
@@ -121,7 +121,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙singer 6",
+             "name": "🎙Monica",
              "iconImage":"woman-3",
              "titleForLabel":"singer 6",
              "positionX": 520,
@@ -133,9 +133,9 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙singer 7",
+             "name": "🎙Skyler",
              "iconImage":"man-4",
-             "titleForLabel":"singer 8",
+             "titleForLabel":"singer 7",
              "positionX": 605,
              "positionY": 500,
              "width": 68,
@@ -145,7 +145,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙singer 8",
+             "name": "🎙Mary",
              "iconImage":"woman-4",
              "titleForLabel":"singer 8",
              "positionX": 690,
@@ -157,7 +157,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 9",
+             "name": "🎤Nathan",
              "iconImage":"man-5",
              "titleForLabel":"singer 9",
              "positionX": 780,
@@ -169,7 +169,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 10",
+             "name": "🎤Jeremiah",
              "iconImage":"woman-5",
              "titleForLabel":"singer 10",
              "positionX": 870,
@@ -181,7 +181,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 11",
+             "name": "🎤Kyle",
              "iconImage":"man-6",
              "titleForLabel":"singer 11",
              "positionX": 130,
@@ -193,7 +193,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 12",
+             "name": "🎤Shelly",
              "iconImage":"woman-6",
              "titleForLabel":"singer 12",
              "positionX": 225,
@@ -205,7 +205,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 13",
+             "name": "🎤Robert",
              "iconImage":"man-7",
              "titleForLabel":"singer 13",
              "positionX": 320,
@@ -217,7 +217,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 14",
+             "name": "🎤Sharon",
              "iconImage":"woman-7",
              "titleForLabel":"singer 14",
              "positionX": 415,
@@ -229,9 +229,9 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 14",
+             "name": "🎤Billy",
              "iconImage":"man-8",
-             "titleForLabel":"singer 14",
+             "titleForLabel":"singer 15",
              "positionX": 510,
              "positionY": 610,
              "width": 68,
@@ -241,9 +241,9 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 15",
+             "name": "🎤Brad",
              "iconImage":"man",
-             "titleForLabel":"singer 15",
+             "titleForLabel":"singer 16",
              "positionX": 605,
              "positionY": 610,
              "width": 68,
@@ -253,9 +253,9 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤singer 16",
+             "name": "🎤Teresa",
              "iconImage":"woman",
-             "titleForLabel":"singer 16",
+             "titleForLabel":"singer 17",
              "positionX": 700,
              "positionY": 610,
              "width": 68,

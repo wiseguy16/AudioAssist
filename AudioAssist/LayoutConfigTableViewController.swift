@@ -13,11 +13,15 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
       var delegate: PickMusicianDelegate?
     
     var arrayOfOptions = [Musician]()
-    var uniqueTagID = arc4random()
+    var uniqueTagID = Int(arc4random_uniform(999999))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMusicianOptions()
+        uniqueTagID = uniqueTagID + 1
+         //uniqueTagID = Int(arc4random_uniform(9999))
+        //var uniqueTagID = Int(uniqueTagIDtemp)
+      //  var uniqueTagID = arc4random_uniform(9999) % 10
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,7 +74,7 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         
         let thisIndexPath = self.tableView?.indexPathForCell(cell)
         let aMusician = arrayOfOptions[thisIndexPath!.row]
-        aMusician.uniqueID = Int(uniqueTagID)
+        aMusician.uniqueID = uniqueTagID  //Int(uniqueTagID)
         delegate!.musicianWasChosen(aMusician)
 
         

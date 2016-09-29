@@ -47,8 +47,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f21-x9-by7">
-                                <rect key="frame" x="8" y="558" width="106" height="30"/>
-                                <state key="normal" title="Show Requests">
+                                <rect key="frame" x="8" y="548" width="126" height="40"/>
+                                <state key="normal" title="   Show Requests  " backgroundImage="Unchecked.png">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -66,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="28" width="0.0" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cx9-7m-iQ8" id="3e8-Yj-N7F">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AdX-h5-F7G">
@@ -113,7 +113,7 @@
                                     <outlet property="delegate" destination="rif-mq-ybG" id="jFu-Se-gfk"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fq-yI-dZZ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fq-yI-dZZ">
                                 <rect key="frame" x="144" y="520" width="68" height="68"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -127,7 +127,7 @@
                                     <outletCollection property="gestureRecognizers" destination="Nv5-jc-Bco" appends="YES" id="N6V-z8-SdZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-fd-anj">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-fd-anj">
                                 <rect key="frame" x="224" y="520" width="68" height="68"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -141,19 +141,19 @@
                                     <outletCollection property="gestureRecognizers" destination="40T-Ib-EZB" appends="YES" id="zGN-yr-p2s"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete Icons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNT-aP-KxY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Delete Icons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNT-aP-KxY">
                                 <rect key="frame" x="24" y="398" width="76" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nhg-pk-Rtt">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nhg-pk-Rtt">
                                 <rect key="frame" x="37" y="422" width="51" height="31"/>
                                 <connections>
                                     <action selector="deleteSwitch:" destination="rif-mq-ybG" eventType="valueChanged" id="kaZ-5f-jzr"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIw-Eg-7nh">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIw-Eg-7nh">
                                 <rect key="frame" x="37" y="497" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="ahp-7e-cQ1"/>
@@ -167,13 +167,13 @@
                                     <action selector="lockToggled:" destination="rif-mq-ybG" eventType="valueChanged" id="KOh-s6-6Vi"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons Locked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBU-1d-pyr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Icons Locked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBU-1d-pyr">
                                 <rect key="frame" x="22" y="473" width="80" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-7s-ozu">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyN-7s-ozu">
                                 <rect key="frame" x="304" y="537" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ewW-C1-tCN"/>
@@ -185,7 +185,7 @@
                                     <action selector="requestTapped:" destination="rif-mq-ybG" eventType="touchUpInside" id="Cql-1T-24m"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJl-aI-GPs">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJl-aI-GPs">
                                 <rect key="frame" x="359" y="537" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="bPx-99-huR"/>
@@ -492,7 +492,7 @@
                                 <rect key="frame" x="0.0" y="72" width="600" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OvA-PS-eoG" id="Uuc-Vj-TbA">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="93"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="92.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="electric-guitar.png" translatesAutoresizingMaskIntoConstraints="NO" id="oPM-ie-ebI">
@@ -501,7 +501,7 @@
                                                 <constraint firstAttribute="width" secondItem="oPM-ie-ebI" secondAttribute="height" multiplier="1:1" id="rMm-ug-Qyq"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUo-bH-sms">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUo-bH-sms">
                                             <rect key="frame" x="88" y="36" width="50" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -536,9 +536,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIP-iS-bul">
-                                            <rect key="frame" x="543" y="28" width="37" height="36"/>
+                                            <rect key="frame" x="533" y="26" width="47" height="40"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <state key="normal" title="Add"/>
+                                            <state key="normal" title=" Add " backgroundImage="Unchecked.png"/>
                                             <connections>
                                                 <action selector="addMusicianTapped:" destination="FJd-i8-pGH" eventType="touchUpInside" id="n2g-Rf-fDq"/>
                                             </connections>
