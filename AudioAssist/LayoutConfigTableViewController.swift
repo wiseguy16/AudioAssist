@@ -14,6 +14,9 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
     
     var arrayOfOptions = [Musician]()
     var uniqueTagID = Int(arc4random_uniform(999999))
+    var wasAdded = false
+    
+    var toBeAddedMusicians: [Musician] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +62,27 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         cell.positionXTextField.text = "\(aMusician.positionX)"
         cell.positionYTextField.text = "\(aMusician.positionY)"
         cell.musicianImageView.image = UIImage(named: aMusician.iconImage)
+        
+        
+        let matchesFound = toBeAddedMusicians.filter { $0.uniqueID == aMusician.uniqueID }
+        
+            if matchesFound.count > 0
+            {
+                cell.addMusicianButton.backgroundColor = UIColor.cyanColor()
+            }
+            else
+            {
+              cell.addMusicianButton.backgroundColor = UIColor.whiteColor()
+            }
+        
+        
+        
+        
+        
+        //cell.addConfirmImage.image = UIImage(named: "add1")
+       // cell.addConfirmImage.alpha = 0
+        
+        //cell.addConfirmImage.alpha = 0
 
         // Configure the cell...
 
@@ -67,15 +91,71 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
     
     @IBAction func addMusicianTapped(sender: UIButton)
     {
+       // wasAdded = !wasAdded
        // let button = sender as! UIButton
         uniqueTagID = uniqueTagID + 1
         let view = sender.superview
         let cell = view!.superview as! ConfigOptionsCell
         
+        
+        
         let thisIndexPath = self.tableView?.indexPathForCell(cell)
         let aMusician = arrayOfOptions[thisIndexPath!.row]
+        
+        if sender.backgroundColor == UIColor.cyanColor()
+        {
+            // cell is already selected, unselect it
+            sender.backgroundColor = UIColor.whiteColor()
+        }
+        else if sender.backgroundColor == UIColor.whiteColor()
+        {
+            // cell is not selected, select it
+            sender.backgroundColor = UIColor.cyanColor()
+        }
+        
         aMusician.uniqueID = uniqueTagID  //Int(uniqueTagID)
+        toBeAddedMusicians.append(aMusician)
+        
+//        cell.addMusicianButton.setImage(UIImage(named: "guitar.png"), forState: .Normal)
+//         cell.addMusicianButton.setImage(UIImage(named: "piano.png"), forState: .Highlighted)
+//         cell.addMusicianButton.setImage(UIImage(named: "drum.png"), forState: .Selected)
+        
+        
+//        sender.setImage(UIImage(named: "guitar.png"), forState: .Normal)
+//        
+//        // Highlighted
+//        sender.setImage(UIImage(named: "piano.png"), forState: .Highlighted)
+//        
+//        // Selected
+//        sender.setImage(UIImage(named: "drum.png"), forState: .Selected)
+//        
+//        // Selected + Highlighted
+//        sender.setImage(UIImage(named: "keyboard.png"), forState: [.Selected, .Highlighted])
+       // sender.backgroundColor = UIColor.cyanColor()
+      //  UIView.animateWithDuration(0.3, animations: { sender.backgroundColor = UIColor.cyanColor()})
+//        UIView.animateWithDuration(0.3, animations: { 
+//            sender.backgroundColor = UIColor.cyanColor()
+//            }, completion: { UIView.animateWithDuration(0.3, animations: {
+//                sender.backgroundColor = UIColor.cyanColor() })
+//        })
+    
+    
+        
+//        if wasAdded
+//        {
+//            cell.addConfirmImage.alpha = 1
+//        }
+//        else
+//        {
+//            cell.addConfirmImage.alpha = 0
+//        }
+//        
+//        wasAdded = !wasAdded
+       // cell.addConfirmImage.alpha = 1
+        
+        
         delegate!.musicianWasChosen(aMusician)
+       // tableView.reloadData()
 
         
         
@@ -123,6 +203,7 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
 
     @IBAction func exitOnLeftTapped(sender: UIBarButtonItem)
     {
+        // put delegate stuff here
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }

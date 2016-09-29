@@ -342,7 +342,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         // Pass the selected object to the new view controller.
         if segue.identifier == "ConfigureSegue"
         {
-            let pickVC = segue.destinationViewController as! LayoutConfigTableViewController
+            let navVC = segue.destinationViewController as! UINavigationController
+            let pickVC = navVC.viewControllers[0] as! LayoutConfigTableViewController
             pickVC.delegate = self
         }
         
@@ -380,7 +381,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 }
             }
             self.arrayOfMusicians = newArrayOfMusicians
-            print(self.arrayOfMusicians)
+            print("line 383")
             self.displayMusiciansFromDatabase()
            // self.reloadMusicians()
             

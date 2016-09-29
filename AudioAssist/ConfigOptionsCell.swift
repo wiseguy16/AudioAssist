@@ -16,6 +16,10 @@ class ConfigOptionsCell: UITableViewCell
     @IBOutlet weak var positionXTextField: UITextField!
     @IBOutlet weak var positionYTextField: UITextField!
     
+    @IBOutlet weak var addMusicianButton: UIButton!
+    
+    
+    @IBOutlet weak var addConfirmImage: UIImageView!
     
     
 
