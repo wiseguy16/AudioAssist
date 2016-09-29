@@ -235,10 +235,10 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 aButton.addGestureRecognizer(longPrssGesture)
                 aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
                 
-//                let dubTapGesture = UITapGestureRecognizer()
-//                dubTapGesture.numberOfTapsRequired = 2
-//                aButton.addGestureRecognizer(dubTapGesture)
-//                aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
+                let dubTapGesture = UITapGestureRecognizer()
+                dubTapGesture.numberOfTapsRequired = 2
+                aButton.addGestureRecognizer(dubTapGesture)
+                aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
                 
                 
                 let aLabel = UILabel()
@@ -299,13 +299,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     func buttonDragged(button: UIButton, event: UIEvent)
     {
-        //        // get the touch
-        //        let translation = recognizer.translationInView(self.view)
-        //        if let view = recognizer.view {
-        //            view.center = CGPoint(x:view.center.x + translation.x,
-        //                                  y:view.center.y + translation.y)
-        //        }
-        //        recognizer.setTranslation(CGPointZero, inView: self.view)
+        
         
         if !lockSwitch.on
         {
@@ -326,8 +320,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     thisButton.positionX = Int(button.center.x + delta_x - 34)
                     thisButton.positionY = Int(button.center.y + delta_y - 34)
                     let updatedMessage = ["positionX": thisButton.positionX, "positionY": thisButton.positionY]
-                    print("\(thisButton.positionX)")
-                    print("\(thisButton.positionY)")
                     
                     thisButton.ref?.updateChildValues(updatedMessage)
                 }
@@ -438,7 +430,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     item.hasBeenDrawn = true
                     print("\(arrayOfMusicians.count)")
                 }
-                print(item.hasBeenDrawn)
+                
             }
             hasBeenDisplayedOnce = true
         }
@@ -501,9 +493,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
             {
                 if aButton.tag == thisButton.uniqueID
                 {
-                    print("\(thisButton.positionX)")
                     aButton.removeFromSuperview()
-                    
                     thisButton.ref?.removeValue()
                 }
             }
@@ -846,7 +836,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         //let myButton = recognizer.view as! UIButton
         var newPoint: CGPoint = (recognizer.view?.center)!
         newPoint = myButton.center
-        print(newPoint)
+        
         //        newGuitarButton2.center = newPoint
         //
         //        newGuitarButton2.updateConstraints()
