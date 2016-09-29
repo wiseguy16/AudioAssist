@@ -17,7 +17,7 @@ protocol LoginViewControllerDelegate
 
 protocol PickMusicianDelegate
 {
-    func musicianWasChosen(pickedMusician: Musician)
+    func musicianWasChosen(pickedMusicians: [Musician])
 }
 
 class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate //, LoginViewControllerDelegate
@@ -479,10 +479,10 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         
     }
     
-    func musicianWasChosen(pickedMusician: Musician)
+    func musicianWasChosen(pickedMusicians: [Musician])
     {
         // dismiss(animated: true, completion: nil)
-        arrayOfMusicians.append(pickedMusician)
+        arrayOfMusicians.appendContentsOf(pickedMusicians)
         //tableView.reloadData()
     }
     

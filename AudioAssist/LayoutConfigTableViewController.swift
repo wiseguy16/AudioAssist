@@ -91,7 +91,8 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
     
     @IBAction func addMusicianTapped(sender: UIButton)
     {
-       // wasAdded = !wasAdded
+        wasAdded = !wasAdded
+        let tempBool = wasAdded
        // let button = sender as! UIButton
         uniqueTagID = uniqueTagID + 1
         let view = sender.superview
@@ -101,20 +102,24 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         
         let thisIndexPath = self.tableView?.indexPathForCell(cell)
         let aMusician = arrayOfOptions[thisIndexPath!.row]
+        aMusician.uniqueID = uniqueTagID  //Int(uniqueTagID)
         
         if sender.backgroundColor == UIColor.cyanColor()
         {
             // cell is already selected, unselect it
             sender.backgroundColor = UIColor.whiteColor()
+            if toBeAddedMusicians.count > 0
+            {
+            toBeAddedMusicians.removeAtIndex((thisIndexPath?.row)!)
+            }
         }
         else if sender.backgroundColor == UIColor.whiteColor()
         {
             // cell is not selected, select it
             sender.backgroundColor = UIColor.cyanColor()
+            toBeAddedMusicians.append(aMusician)
         }
         
-        aMusician.uniqueID = uniqueTagID  //Int(uniqueTagID)
-        toBeAddedMusicians.append(aMusician)
         
 //        cell.addMusicianButton.setImage(UIImage(named: "guitar.png"), forState: .Normal)
 //         cell.addMusicianButton.setImage(UIImage(named: "piano.png"), forState: .Highlighted)
@@ -154,7 +159,11 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
        // cell.addConfirmImage.alpha = 1
         
         
-        delegate!.musicianWasChosen(aMusician)
+      //  delegate!.musicianWasChosen(aMusician)
+        
+        
+        
+        
        // tableView.reloadData()
 
         
@@ -204,6 +213,7 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
     @IBAction func exitOnLeftTapped(sender: UIBarButtonItem)
     {
         // put delegate stuff here
+        delegate?.musicianWasChosen(toBeAddedMusicians)
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
