@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A0D3D151D99E24300B79F75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D141D99E24300B79F75 /* AppDelegate.swift */; };
 		4A0D3D1D1D99E24300B79F75 /* AudioAssist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D1B1D99E24300B79F75 /* AudioAssist.xcdatamodeld */; };
 		4A0D3D1F1D99E24300B79F75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D1E1D99E24300B79F75 /* Assets.xcassets */; };
 		4A0D3D221D99E24300B79F75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D201D99E24300B79F75 /* LaunchScreen.storyboard */; };
@@ -16,7 +15,6 @@
 		4A0D3D361D99E3E800B79F75 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D2D1D99E3E800B79F75 /* AppState.swift */; };
 		4A0D3D371D99E3E800B79F75 /* Musician.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D2E1D99E3E800B79F75 /* Musician.swift */; };
 		4A0D3D381D99E3E800B79F75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D2F1D99E3E800B79F75 /* Message.swift */; };
-		4A0D3D391D99E3E800B79F75 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D301D99E3E800B79F75 /* ChatViewController.swift */; };
 		4A0D3D3A1D99E3E800B79F75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D311D99E3E800B79F75 /* LoginViewController.swift */; };
 		4A0D3D3B1D99E3E800B79F75 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D321D99E3E800B79F75 /* MessageCell.swift */; };
 		4A0D3D3C1D99E3E800B79F75 /* ConfigOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D331D99E3E800B79F75 /* ConfigOptionsCell.swift */; };
@@ -39,6 +37,9 @@
 		4A0D3D5F1D99E57500B79F75 /* piano.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4F1D99E57500B79F75 /* piano.png */; };
 		4A0D3D601D99E57500B79F75 /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D501D99E57500B79F75 /* keyboard.png */; };
 		4A0D3D611D99E57500B79F75 /* drum.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D511D99E57500B79F75 /* drum.png */; };
+		4A4244081DA0135400958CEB /* AudioAssistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4244071DA0135400958CEB /* AudioAssistTableViewController.swift */; };
+		4A42440A1DA0138B00958CEB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4244091DA0138B00958CEB /* ChatViewController.swift */; };
+		4A42440C1DA013B300958CEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42440B1DA013B300958CEB /* AppDelegate.swift */; };
 		6E9614B566CA8EE3BACB962C /* Pods_AudioAssist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3916C8D24F0553AEDDEA0D /* Pods_AudioAssist.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +47,6 @@
 		39D65A982690C4FA45CAB171 /* Pods-AudioAssist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioAssist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioAssist/Pods-AudioAssist.debug.xcconfig"; sourceTree = "<group>"; };
 		46B5F27CC8763D72BC89C467 /* Pods-AudioAssist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioAssist.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioAssist/Pods-AudioAssist.release.xcconfig"; sourceTree = "<group>"; };
 		4A0D3D111D99E24300B79F75 /* AudioAssist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioAssist.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A0D3D141D99E24300B79F75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A0D3D1C1D99E24300B79F75 /* AudioAssist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioAssist.xcdatamodel; sourceTree = "<group>"; };
 		4A0D3D1E1D99E24300B79F75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A0D3D211D99E24300B79F75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,7 +56,6 @@
 		4A0D3D2D1D99E3E800B79F75 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4A0D3D2E1D99E3E800B79F75 /* Musician.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Musician.swift; sourceTree = "<group>"; };
 		4A0D3D2F1D99E3E800B79F75 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		4A0D3D301D99E3E800B79F75 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		4A0D3D311D99E3E800B79F75 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4A0D3D321D99E3E800B79F75 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		4A0D3D331D99E3E800B79F75 /* ConfigOptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigOptionsCell.swift; sourceTree = "<group>"; };
@@ -79,7 +78,9 @@
 		4A0D3D4F1D99E57500B79F75 /* piano.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piano.png; sourceTree = "<group>"; };
 		4A0D3D501D99E57500B79F75 /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
 		4A0D3D511D99E57500B79F75 /* drum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drum.png; sourceTree = "<group>"; };
-		4A0D3D621D9C91F700B79F75 /* WC_Musica_Bta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WC_Musica_Bta.otf; sourceTree = "<group>"; };
+		4A4244071DA0135400958CEB /* AudioAssistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioAssistTableViewController.swift; sourceTree = "<group>"; };
+		4A4244091DA0138B00958CEB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		4A42440B1DA013B300958CEB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA3916C8D24F0553AEDDEA0D /* Pods_AudioAssist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AudioAssist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,17 +118,17 @@
 			isa = PBXGroup;
 			children = (
 				4A0D3D2B1D99E3DC00B79F75 /* musicianOptions.json */,
-				4A0D3D621D9C91F700B79F75 /* WC_Musica_Bta.otf */,
-				4A0D3D141D99E24300B79F75 /* AppDelegate.swift */,
 				4A0D3D341D99E3E800B79F75 /* LayoutViewController.swift */,
+				4A42440B1DA013B300958CEB /* AppDelegate.swift */,
+				4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */,
 				4A0D3D2D1D99E3E800B79F75 /* AppState.swift */,
 				4A0D3D2E1D99E3E800B79F75 /* Musician.swift */,
 				4A0D3D2F1D99E3E800B79F75 /* Message.swift */,
-				4A0D3D301D99E3E800B79F75 /* ChatViewController.swift */,
+				4A4244091DA0138B00958CEB /* ChatViewController.swift */,
 				4A0D3D311D99E3E800B79F75 /* LoginViewController.swift */,
 				4A0D3D321D99E3E800B79F75 /* MessageCell.swift */,
 				4A0D3D331D99E3E800B79F75 /* ConfigOptionsCell.swift */,
-				4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */,
+				4A4244071DA0135400958CEB /* AudioAssistTableViewController.swift */,
 				4A0D3D291D99E28700B79F75 /* Main.storyboard */,
 				4A0D3D1E1D99E24300B79F75 /* Assets.xcassets */,
 				4A0D3D421D99E57500B79F75 /* stageOverheadCropped.png */,
@@ -311,17 +312,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A42440C1DA013B300958CEB /* AppDelegate.swift in Sources */,
 				4A0D3D3D1D99E3E800B79F75 /* LayoutViewController.swift in Sources */,
 				4A0D3D3E1D99E3E800B79F75 /* LayoutConfigTableViewController.swift in Sources */,
 				4A0D3D3C1D99E3E800B79F75 /* ConfigOptionsCell.swift in Sources */,
+				4A4244081DA0135400958CEB /* AudioAssistTableViewController.swift in Sources */,
 				4A0D3D3A1D99E3E800B79F75 /* LoginViewController.swift in Sources */,
 				4A0D3D3B1D99E3E800B79F75 /* MessageCell.swift in Sources */,
 				4A0D3D361D99E3E800B79F75 /* AppState.swift in Sources */,
 				4A0D3D1D1D99E24300B79F75 /* AudioAssist.xcdatamodeld in Sources */,
 				4A0D3D381D99E3E800B79F75 /* Message.swift in Sources */,
 				4A0D3D371D99E3E800B79F75 /* Musician.swift in Sources */,
-				4A0D3D391D99E3E800B79F75 /* ChatViewController.swift in Sources */,
-				4A0D3D151D99E24300B79F75 /* AppDelegate.swift in Sources */,
+				4A42440A1DA0138B00958CEB /* ChatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

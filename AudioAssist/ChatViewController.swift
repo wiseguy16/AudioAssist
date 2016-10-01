@@ -20,11 +20,10 @@ protocol PickMusicianDelegate
     func musicianWasChosen(pickedMusicians: [Musician])
 }
 
-class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate //, LoginViewControllerDelegate
+class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate //, LoginViewControllerDelegate
 {
     
     var arrayOfMusicians: [Musician] = []
-   // var location = CGPoint(x: 0, y: 0)
     var hasBeenDisplayedOnce = false
     
     @IBOutlet weak var stageBackground: UIImageView!
@@ -36,39 +35,22 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     @IBOutlet weak var deleteIconsSwitch: UISwitch!
     
     
-    @IBOutlet weak var tableviewWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var lockLabel: UILabel!
     @IBOutlet weak var lockSwitch: UISwitch!
     
-    @IBOutlet weak var pianoLabel: UILabel!
     
     @IBOutlet weak var chatTextField: UITextField!
     
     @IBOutlet weak var unlockLabel: UIButton!
     
-    @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var newLabel2: UILabel!
     
-    @IBOutlet weak var newGuitarButton2: UIButton!
     
     @IBOutlet var monkeyPan: UIPanGestureRecognizer!
     @IBOutlet var bananaPan: UIPanGestureRecognizer!
     @IBOutlet var guitarPan: UIPanGestureRecognizer!
     
-    @IBOutlet weak var handLeftButton: UIButton!
-    
-    @IBOutlet weak var drums: UIImageView!
-    @IBOutlet weak var elecGuitar: UIImageView!
-    @IBOutlet weak var keys: UIImageView!
-    @IBOutlet weak var piano: UIImageView!
-    @IBOutlet weak var click: UIImageView!
-    @IBOutlet weak var acoGuitar: UIImageView!
-    
-    @IBOutlet weak var handUp: UIImageView!
-    @IBOutlet weak var handDown: UIImageView!
-    @IBOutlet weak var handLeft: UIImageView!
-    @IBOutlet weak var handRight: UIImageView!
     
      @IBOutlet weak var singleTapRecognizer: UITapGestureRecognizer!
     
@@ -82,21 +64,12 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     
    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(ChatViewController.handleRefresh(_:)), forControlEvents: .ValueChanged)
-        
-        return refreshControl
-    }()
-    
-   
     
     let checkImage = UIImage(named: "checkedRequest.png")
     let unCheckImage = UIImage(named: "uncheckedRequest.png")
     let checkImageName = "checkedRequest.png"
     let unCheckImageName = "uncheckedRequest.png"
     
-    //var uniqueSessionID: String = "a"
     
     
     var ref: FIRDatabaseReference!
@@ -118,49 +91,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         
         configureMusicians()
         
-         self.tableview.addSubview(self.refreshControl)
-        
-       
-//        displayMusiciansFromDatabase()
-//        let testMusician = arrayOfMusicians[0]
-//        let tButton = UIButton()
-//        tButton.frame = CGRect(x: testMusician.positionX, y: testMusician.positionY, width: testMusician.width, height: testMusician.height)
-//        tButton.setImage(UIImage(named: testMusician.iconImage), forState: .Normal)
-//        tButton.setTitle(testMusician.name, forState: .Normal)
-//        self.view.addSubview(tButton)
-        
-        // This is the default setting but be explicit anyway...
-       // new_view.setTranslatesAutoresizingMaskIntoConstraints(true)
-        
-        //new_view.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin |
-         //   UIViewAutoresizing.FlexibleRightMargin
-       // new_view.center = CGPointMake(self.view.frame.size.height - 20, view.bounds.midY)
         
         
-        let filteredSubviews = self.view.subviews.filter({
-            $0.isKindOfClass(UIImageView) })
-           // $0.isKindOfClass(UIButton) })
-        // 2
-        for view in filteredSubviews  {
-            // 3
-            
-            let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))   //    (target: self, action: #Selector(handleTap))
-            // 4
-            
-            recognizer.delegate = self
-            view.addGestureRecognizer(recognizer)
-            
-            recognizer.requireGestureRecognizerToFail(monkeyPan)
-            recognizer.requireGestureRecognizerToFail(bananaPan)
-            recognizer.requireGestureRecognizerToFail(guitarPan)
-            //TODO: Add a custom gesture recognizer too
-        }
-        
-        
-        
-        
-       // tableview.reloadData()
-       // print(self.arrayOfMessages)
       //  NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
       //  NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
         
@@ -174,22 +106,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         reloadMusicians()
     }
     
-       func handleRefresh(refreshControl: UIRefreshControl) {
-        // Do some reloading of data and update the table view's data source
-        // Fetch more objects from a web service, for example...
-        for deleteObject in arrayOfMessages
-        {
-            if deleteObject.completed == true
-            {
-                deleteObject.ref!.removeValue()
-            }
-        }
-        
-
-        
-        self.tableview.reloadData()
-        refreshControl.endRefreshing()
-    }
     
   
     
@@ -241,12 +157,11 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
                 
                 
-                let aLabel = UILabel()
-                aLabel.frame = CGRect(x: 0, y: -20, width: item.width, height: 15)
-                aLabel.text = item.name
-                aLabel.textColor = UIColor.blackColor()
-                aLabel.sizeToFit()
+                let aLabel = makeLabel(item)
+                
                 aButton.addSubview(aLabel)
+                
+                
                 item.doesExist = true
                 sendMusicianToFirebase(item)
                 print("\(arrayOfMusicians.count)")
@@ -254,6 +169,69 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         }
     }
     
+    func makeLabel(aMusician: Musician) -> UILabel
+    {
+        let aLabel = UILabel()
+        aLabel.frame = CGRect(x: 0, y: -17, width: aMusician.width, height: 15)
+        aLabel.text = aMusician.name
+        aLabel.textColor = UIColor.whiteColor()
+        aLabel.font = UIFont(name: "Helvetica Neue", size: 14)
+        aLabel.sizeToFit()
+        
+        return aLabel
+    }
+    
+    func refreshPositions()
+    {
+        
+        let filteredSubviews = self.view.subviews.filter({
+            $0.isKindOfClass(UIButton) })
+              for view in filteredSubviews  {
+            if view.tag > 2
+            {
+              view.removeFromSuperview()
+            }
+            
+            
+        }
+        for item in arrayOfMusicians
+        {
+            
+            
+//            if item.doesExist == false
+//            {
+                let tempID = item.uniqueID
+            
+                let aButton = UIButton()
+                aButton.frame = CGRect(x: item.positionX, y: item.positionY, width: item.width + 10, height: item.height)
+                aButton.setImage(UIImage(named: item.iconImage), forState: .Normal)
+                aButton.setTitle(item.name, forState: .Normal)
+                aButton.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
+                
+                aButton.tag = tempID
+                self.view.addSubview(aButton)
+                let longPrssGesture = UILongPressGestureRecognizer()
+                aButton.addGestureRecognizer(longPrssGesture)
+                aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
+                
+                let dubTapGesture = UITapGestureRecognizer()
+                dubTapGesture.numberOfTapsRequired = 2
+                aButton.addGestureRecognizer(dubTapGesture)
+                aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
+                
+                
+                let aLabel = makeLabel(item)
+
+                aButton.addSubview(aLabel)
+            
+            
+               // item.doesExist = true
+               // sendMusicianToFirebase(item)
+                print("\(arrayOfMusicians.count)")
+            //}
+        }
+    }
+
     
     @IBAction func deleteSwitch(sender: UISwitch)
     {
@@ -261,7 +239,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         if deleteIconsSwitch.on
         {
             backgroundForMovableIcons.backgroundColor = UIColor.redColor()
-            backgroundForMovableIcons.alpha = 0.2
+            backgroundForMovableIcons.alpha = 0.1
         }
         else if !deleteIconsSwitch.on
         {
@@ -281,7 +259,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         {
             lockLabel.text = "Icons unlocked"
             backgroundForMovableIcons.backgroundColor = UIColor.yellowColor()
-            backgroundForMovableIcons.alpha = 0.2
+            backgroundForMovableIcons.alpha = 0.1
         }
     }
     
@@ -324,13 +302,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     thisButton.ref?.updateChildValues(updatedMessage)
                 }
             }
-//            let contentView = button.superview
-//            //let thisButton = contentView?.superview as! Musician
-//            
-//            let thisIndexPath = self.arrayOfMusicians.
-//            
-//            let myDone = arrayOfMessages[thisIndexPath!.row]
-//            // var aSnap = messages[thisIndexPath!.row]
         }
         
     }
@@ -383,10 +354,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
             self.arrayOfMusicians = newArrayOfMusicians
             print("line 383")
             self.displayMusiciansFromDatabase()
-           // self.reloadMusicians()
-            
-            //    self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: self.arrayOfMessages.count-1, inSection: 0)], withRowAnimation: .Automatic)
-            
         })
         
 
@@ -409,7 +376,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     aButton.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
                     
                     aButton.tag = item.uniqueID
-                    print(item.uniqueID)
                     self.view.addSubview(aButton)
                     let longPrssGesture = UILongPressGestureRecognizer()
                     aButton.addGestureRecognizer(longPrssGesture)
@@ -422,12 +388,10 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
                     aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
                     
-                    let aLabel = UILabel()
-                    aLabel.frame = CGRect(x: 0, y: -17, width: item.width, height: 15)
-                    aLabel.text = item.name
-                    aLabel.textColor = UIColor.blackColor()
-                    aLabel.sizeToFit()
+                    let aLabel = makeLabel(item)
+                    
                     aButton.addSubview(aLabel)
+                    
                     item.hasBeenDrawn = true
                     print("\(arrayOfMusicians.count)")
                 }
@@ -435,15 +399,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
             }
             hasBeenDisplayedOnce = true
         }
-        /*
-        let testMusician = arrayOfMusicians[0]
-        let tButton = UIButton()
-        tButton.frame = CGRect(x: testMusician.positionX, y: testMusician.positionY, width: testMusician.width, height: testMusician.height)
-        tButton.setImage(UIImage(named: testMusician.iconImage), forState: .Normal)
-        tButton.setTitle(testMusician.name, forState: .Normal)
-        self.view.addSubview(tButton)
-        */
-        
         
     }
 
@@ -455,8 +410,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         ref = FIRDatabase.database().reference()
         
         // Listen for new messages from Firebase
-        //  refHandle = ref.child(uniqueSessionID).observeEventType(.ChildAdded, withBlock: {
-        
         
         ref.child("messages").observeEventType(.Value, withBlock: {
             (snapshot) -> Void in
@@ -469,10 +422,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                 }
             }
             self.arrayOfMessages = newArrayOfMessages
-            self.tableview.reloadData()
             self.messages.append(snapshot)
-            
-        //    self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: self.arrayOfMessages.count-1, inSection: 0)], withRowAnimation: .Automatic)
             
         })
         
@@ -506,9 +456,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     
     
-    
-    
-    
     func sendMessage(message: String?)
     {
         let completed: Bool = false
@@ -526,170 +473,16 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
                     
                     ref.child("messages").childByAutoId().setValue(["request": msg, "name": username, "completed": completed, "removeRequest": removeRequest])
                     self.arrayOfMessages.append(messageData)
-                    self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: self.arrayOfMessages.count-1, inSection: 0)], withRowAnimation: .Automatic)
-                    
                     //Push to Firebase Database
                     
-                    // ref.child(uniqueSessionID).childByAutoId().setValue(messageData)
-                   // ref.child("messages").childByAutoId().setValue(messageData)
+                    
                     chatTextField.text = ""
                 }
             }
         }
     }
 
-    
-    // MARK: - Tableview required methods
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
-    {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return arrayOfMessages.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! MessageCell
-        // Unpack message from Firebase DataSnapshot
-        
-        let thisRequest = self.arrayOfMessages[indexPath.row]
-        
-            
-        cell.requestLabel.text = thisRequest.request
-        
-            if thisRequest.completed == true
-            {
-                cell.checkButton.setImage(checkImage, forState: .Normal)
-            }
-            else if thisRequest.completed == false
-            {
-                cell.checkButton.setImage(unCheckImage, forState: .Normal)
-            }
-        
-        return cell
-        
-        
-            
-/*
-            
-            //cell.textLabel?.text = name + ": " + text
-            cell.textLabel?.text = text as? String
-            
-            let fontSized = cell.textLabel?.text?.characters.count
-            let tempSize  = CGFloat(40 - fontSized!)
-            cell.textLabel?.font = UIFont(name: "Thonburi", size: tempSize)
-            
-            //            if completed as! Bool == false
-            //            {
-            //                cell.accessoryType = UITableViewCellAccessoryType.None
-            //                cell.textLabel?.textColor = UIColor.blackColor()
-            //                cell.detailTextLabel?.textColor = UIColor.blackColor()
-            //            } else {
-            //
-            //                cell.accessoryView?.tintColor = UIColor.greenColor()
-            //                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-            //
-            //                cell.textLabel?.textColor = UIColor.greenColor()
-            //                cell.detailTextLabel?.textColor = UIColor.greenColor()
-            //            }
- 
-        
-        }
-*/
 
-        
-        
-    }
-    
-
-    
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
-        // 1
-//        let cell = tableView.cellForRowAtIndexPath(indexPath)!
-//        
-//        var aRequest: Message
-//     
-//        let snapshotToUpdate = messages[indexPath.row]
-//        
-       // tableView.reloadData()
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
-    {
-        
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-    {
-        if editingStyle == .Delete
-        {
-            let reqToDelete = arrayOfMessages[indexPath.row]
-           // let refToDelete = messages[indexPath.row]
-            reqToDelete.ref!.removeValue()
-            
-            //            let messageSnapshot = self.messages[indexPath.row]
-            //            let message = messageSnapshot.value as! Dictionary<String, String>
-            //            refToDelete.ref.updateChildValues(message)
-            // messages.removeAtIndex(indexPath.row)
-            // tableView.reloadData()
-        }
-        //   tableView.reloadData()
-    }
-    
-    
-   
-
-    func toggleCellCheckbox(cell: UITableViewCell, isCompleted: Bool)
-    {
-        if !isCompleted {
-            cell.accessoryType = UITableViewCellAccessoryType.None
-            cell.textLabel?.textColor = UIColor.blackColor()
-            cell.detailTextLabel?.textColor = UIColor.blackColor()
-        }
-        else
-        {
-            
-            cell.accessoryView?.tintColor = UIColor.greenColor()
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-            cell.textLabel?.textColor = UIColor.greenColor()
-            cell.detailTextLabel?.textColor = UIColor.greenColor()
-        }
-    }
-    
-
-    @IBAction func checkTapped(sender: UIButton)
-    {
-        //isChecked = !isChecked
-        let contentView = sender.superview
-        let cell = contentView?.superview as! MessageCell
-        let thisIndexPath = tableview.indexPathForCell(cell)
-        
-        let myDone = arrayOfMessages[thisIndexPath!.row]
-       // var aSnap = messages[thisIndexPath!.row]
-        
-       // let aRequest = Message()
-        //let updateRequest = aRequest.convertSnapshotToMessage(aSnap)
-        
-        myDone.completed = !myDone.completed
-        if myDone.completed == true
-        {
-            sender.setImage(checkImage, forState: .Normal)
-        }
-        else if myDone.completed == false
-        {
-            sender.setImage(unCheckImage, forState: .Normal)
-        }
-        let updatedMessage = ["completed": myDone.completed]
-        myDone.ref?.updateChildValues(updatedMessage)
-        
-    }
     
     
     // MARK: - Textfield delegate
@@ -728,27 +521,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
     
     @IBAction func hideTapped(sender: UIButton)
     {
-       //self.tableview.alpha = 1   //.animateWithDuration(0.3, animations: .CurveEaseOut)
-        requestsHidden = !requestsHidden
-        if requestsHidden
-        {
-            unlockLabel.setTitle("Show Requests", forState: .Normal)
-            unlockLabel.setTitleColor(UIColor.redColor(), forState: .Normal)
-            tableviewWidthConstraint.constant = 0
+           refreshPositions()
             
-            
-        }
-        else
-        {
-            unlockLabel.setTitle("Hide Requests", forState: .Normal)
-            unlockLabel.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            tableviewWidthConstraint.constant = (view.bounds.width * 0.4)
-        }
-        //        if chatTextField.isFirstResponder()
-        //        {
-        //            chatTextField.resignFirstResponder()
-        //        }
-        
     }
     
     func keyboardDidShow(notification: NSNotification)
@@ -790,15 +564,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         
     }
     
-//    func buttonPressed(sender: UIButton)
-//    {
-//        
-//        chatTextField.text = chatTextField.text! + sender.currentTitle!
-//        // print("piano?")
-//        
-//        
-//        
-//    }
     
     @IBAction func requestTapped(sender: UIButton)
     {
@@ -806,13 +571,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         print("piano?")
         
     }
-    //    func didSetSessionID(sessionIDFromLogin: String?)
-    //    {
-    //        if let sessIDFrmLog = sessionIDFromLogin
-    //        {
-    //            uniqueSessionID = sessIDFrmLog
-    //        }
-    //    }
     
     
     func gestureRecognizer(_: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool
@@ -820,16 +578,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         return true
     }
     
-    //    func ignore(button: UIPress, for event: UIPressesEvent)
-    //    {
-    //        let myButton = UIPress.self
-    //        var newPoint: CGPoint
-    //        newPoint = myButton.center
-    //
-    //        newGuitarButton2.center = newPoint
-    //
-    //
-    //    }
     
     func handleTap(recognizer: UITapGestureRecognizer)
     {
@@ -838,243 +586,13 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITableViewDat
         var newPoint: CGPoint = (recognizer.view?.center)!
         newPoint = myButton.center
         
-        //        newGuitarButton2.center = newPoint
-        //
-        //        newGuitarButton2.updateConstraints()
-        //        newGuitarButton2.center = newPoint// center = newPoint
-        //        newLabel2.text = myButton.currentTitle!
-        //        let tempString = myButton.currentTitle!
-        //        print(tempString)
-        
-//        let handRight = UIImage(named: "Hand Right-48.png")
-//        let handView = UIImageView(image: handRight)
-//        handView.frame = CGRect(x: newPoint.x, y: newPoint.y, width: 68, height: 68)
-//        self.view.addSubview(handView)
-        
-        // newLabel2.text = tempString
-        
-//        myButton.frame = CGRect(x: 40, y: 40, width: 100, height: 100)
-//        super.viewWillLayoutSubviews()
-//        view.addSubview(myButton)
+
     }
     
 
 }
     
     
-        
-//       if let updatedRequest = Message.convertSnapshotToMessage(aSnap)
-//       {
-//            updatedRequest.completed = !updatedRequest.completed
-//            
-//        
-//            
-//            if updatedRequest.completed == true
-//            {
-//                sender.setImage(checkImage, forState: .Normal)
-//                
-//            }
-//            else if updatedRequest.completed == false
-//            {
-//                sender.setImage(unCheckImage, forState: .Normal)
-//            }
-//        
-//            var updatedMessage = aSnap.value as! Dictionary<String, AnyObject>
-//            let tempBool = updatedRequest.completed
-//          
-//            updatedMessage = ["completed": tempBool]
-//            aSnap.ref.updateChildValues(updatedMessage)
-//        }
-        
-//    }
-
-
-
-    
-//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
-//    {
-//        super.touchesBegan(touches, withEvent: event)
-//        for touch in (touches as! Set<UITouch>)
-//        {
-//            let
-//        }
-//        let touch = touches.first
-//      
-//        start = touch!.locationInView(self.view)
-//       
-//        //location = touch.locationInView(self.view)
-//    //    handLeftButton.center = start!
-//        
-//    }
-//
-//    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
-//    {
-//        super.touchesMoved(touches, withEvent: event)
-//        let touch = touches.first
-//        let end = touch!.locationInView(view)
-//      //  if let start = self.start
-//      //  {
-//      //      handLeftButton.center = end
-//      //  }
-//      //  self.start = end
-//       // elecGuitar.center = location
-//        
-//    }
-//    
-//    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
-//    {
-//        super.touchesEnded(touches, withEvent: event)
-//        let touch = touches.first
-//        let end = touch!.locationInView(view)
-//   //     newCenter = end
-//   //     handLeftButton.center = newCenter!
-//  //      print(newCenter)
-//    }
-    
-//    func makeImage() -> UIImage
-//    {
-//        
-//        
-//        UIGraphicsBeginImageContext(self.piano.bounds.size)//  .bounds.size)
-//        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-//        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return viewImage
-//    }
-    
-    
-    //      let imageToConvert = UIImage(named: "piano")
-    //      let imageAsData = UIImagePNGRepresentation(imageToConvert!)
-    
-    // print("the piano data is: \(imageAsData!)")
-    //myData = myImageData!
-    
-    //let myNewImage : UIImage = UIImage(data: imageAsData!)!
-    
-    //let aString: String = imageAsData.
-    
-    //        let textViewData : NSData = imageData.dataUsingEncodin(NSNonLossyASCIIStringEncoding)!
-    //        let valueUniCode : String = String(data: textViewData, encoding: NSUTF8StringEncoding)!
-    //        let emojData : NSData = valueUniCode.dataUsingEncoding(NSUTF8StringEncoding)!
-    //        let emojString:String = String(data: emojData, encoding: NSNonLossyASCIIStringEncoding)!
-    
-
-    
-    
-    // MARK: - Firebase methods
-    
-    // When messages are added, run the withBlock
-    
-//    func getSessionIDFirst()
-//    {
-//        uniqueSessionID =
-//    }
-    
-    
-    
-    
-    
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        // 1
-//        ref.observeEventType(.Value, withBlock: { snapshot in
-//            
-//            // 2
-//            var newItems = [GroceryItem]()
-//            
-//            // 3
-//            for item in snapshot.children {
-//                
-//                // 4
-//                let groceryItem = GroceryItem(snapshot: item as! FDataSnapshot)
-//                newItems.append(groceryItem)
-//            }
-//            
-//            // 5
-//            self.items = newItems
-//            self.tableView.reloadData()
-//        })
-//    }
-    
-    
-    
-    
-
-    
-    
-    
-//}
-
-//        /*refHandle =*/
-
-//        ref.child("messages").observeEventType(.ChildRemoved, withBlock: {
-//            (snapshot) -> Void in
-//
-//            var foundMessage: FIRDataSnapshot?
-//            for aMessage in self.messages
-//            {
-//                if aMessage.key == snapshot.key
-//                {
-//                    foundMessage = aMessage
-//                    print("found this snapshot")
-//                    break
-//                }
-//
-//            }
-//
-//            if let index = self.messages.indexOf(foundMessage!)
-//            {
-//                print("gonna remove it!!")
-//                self.messages.removeAtIndex(index)
-//                self.tableview.deleteRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .Automatic)
-//                self.tableview.reloadData()
-//            }
-//
-//
-//        })
-
-//        refHandle = ref.child("messages").observeEventType(.ChildChanged, withBlock: {
-//            (snapshot) -> Void in
-//
-//            var foundMessage: FIRDataSnapshot?
-//            for aMessage in self.messages
-//            {
-//                if aMessage.key == snapshot.key
-//                {
-//                    foundMessage = aMessage
-//                    break
-//                }
-//
-//            }
-//
-//            if let index = self.messages.indexOf(foundMessage!)
-//            {
-//                print("Make it green!!")
-//                self.tableview.reloadRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .Automatic)
-//                print("reload rows at index")
-//
-//
-//
-//                self.tableview.reloadData()
-//            }
-//
-//
-//            //            if let index = self.messages.indexOf(snapshot)
-//            //            {
-//            //                //self.messages.insert(snapshot, atIndex: index)
-//            //                //self.messages.removeAtIndex(index + 1)
-//            //                self.tableview.reloadRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .Automatic)
-//            //                //   deleteRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .Automatic)
-//            //            }
-//
-//        })
-
-
-
-
-//    }
-
 
 
 
