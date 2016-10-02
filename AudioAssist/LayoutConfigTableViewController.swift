@@ -68,7 +68,7 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         
             if matchesFound.count > 0
             {
-                cell.addMusicianButton.backgroundColor = UIColor.cyanColor()
+                cell.addMusicianButton.backgroundColor = UIColor.blueColor()
             }
             else
             {
@@ -104,19 +104,32 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         let aMusician = arrayOfOptions[thisIndexPath!.row]
         aMusician.uniqueID = uniqueTagID  //Int(uniqueTagID)
         
-        if sender.backgroundColor == UIColor.cyanColor()
+        if sender.backgroundColor == UIColor.blueColor()
         {
             // cell is already selected, unselect it
             sender.backgroundColor = UIColor.whiteColor()
             if toBeAddedMusicians.count > 0
             {
-            toBeAddedMusicians.removeAtIndex((thisIndexPath?.row)!)
+                var myIndex = 0
+                for thisMusician in toBeAddedMusicians
+                {
+                    if thisMusician.uniqueID == aMusician.uniqueID
+                    {
+                        toBeAddedMusicians.removeAtIndex(myIndex)
+                        break
+                    }
+                    else
+                    {
+                        myIndex = myIndex + 1
+                    }
+                }
+                 //removeAtIndex((thisIndexPath?.row)!)
             }
         }
         else if sender.backgroundColor == UIColor.whiteColor()
         {
             // cell is not selected, select it
-            sender.backgroundColor = UIColor.cyanColor()
+            sender.backgroundColor = UIColor.blueColor()
             toBeAddedMusicians.append(aMusician)
         }
         
@@ -145,31 +158,6 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
 //        })
     
     
-        
-//        if wasAdded
-//        {
-//            cell.addConfirmImage.alpha = 1
-//        }
-//        else
-//        {
-//            cell.addConfirmImage.alpha = 0
-//        }
-//        
-//        wasAdded = !wasAdded
-       // cell.addConfirmImage.alpha = 1
-        
-        
-      //  delegate!.musicianWasChosen(aMusician)
-        
-        
-        
-        
-       // tableView.reloadData()
-
-        
-        
-        
-        
 //        let contentView = sender.superview
 //        let cell = contentView!.superview as! ConfigOptionsCell
 //        let thisIndexPath = self.tableView?.cellForRowAtIndexPath(cell)    //   .indexPathForCell(cell)
@@ -213,6 +201,8 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
     @IBAction func exitOnLeftTapped(sender: UIBarButtonItem)
     {
         // put delegate stuff here
+        
+        
         delegate?.musicianWasChosen(toBeAddedMusicians)
         self.dismissViewControllerAnimated(true, completion: nil)
         
