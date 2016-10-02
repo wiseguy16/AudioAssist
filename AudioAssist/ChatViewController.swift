@@ -258,7 +258,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         else if !lockSwitch.on
         {
             lockLabel.text = "Icons unlocked"
-            backgroundForMovableIcons.backgroundColor = UIColor.yellowColor()
+            backgroundForMovableIcons.backgroundColor = UIColor.greenColor()
             backgroundForMovableIcons.alpha = 0.1
         }
     }
@@ -521,6 +521,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     
     @IBAction func hideTapped(sender: UIButton)
     {
+           configureDatabase()
            refreshPositions()
             
     }

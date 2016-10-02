@@ -193,6 +193,30 @@
              "hasBeenDrawn": false
              },
              {
+             "name": "Tracks",
+             "iconImage":"Track_icon",
+             "titleForLabel":"Tracks",
+             "positionX": 500,
+             "positionY": 300,
+             "width": 60,
+             "height": 68,
+             "uniqueID": 870,
+             "doesExist": false,
+             "hasBeenDrawn": false
+             },
+             {
+             "name": "Click",
+             "iconImage":"Click_icon",
+             "titleForLabel":"Click",
+             "positionX": 500,
+             "positionY": 400,
+             "width": 60,
+             "height": 68,
+             "uniqueID": 871,
+             "doesExist": false,
+             "hasBeenDrawn": false
+             },
+             {
              "name": "Instrument",
              "iconImage":"Musicnote_icon",
              "titleForLabel":"Instrument",
@@ -205,55 +229,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "drums",
-             "iconImage":"drum.png",
-             "titleForLabel":"drums",
-             "positionX": 480,
-             "positionY": 250,
-             "width": 68,
-             "height": 68,
-             "uniqueID": 951,
-             "doesExist": false,
-             "hasBeenDrawn": false
-             },
-             {
-             "name": "piano",
-             "iconImage":"piano.png",
-             "titleForLabel":"piano",
-             "positionX": 300,
-             "positionY": 350,
-             "width": 68,
-             "height": 68,
-             "uniqueID": 952,
-             "doesExist": false,
-             "hasBeenDrawn": false
-             },
-             {
-             "name": "electric guitar",
-             "iconImage":"electric-guitar.png",
-             "titleForLabel":"electric guitar",
-             "positionX": 750,
-             "positionY": 250,
-             "width": 68,
-             "height": 68,
-             "uniqueID": 953,
-             "doesExist": false,
-             "hasBeenDrawn": false
-             },
-             {
-             "name": "keyboard",
-             "iconImage":"keyboard.png",
-             "titleForLabel":"keyboard",
-             "positionX": 650,
-             "positionY": 350,
-             "width": 68,
-             "height": 68,
-             "uniqueID": 954,
-             "doesExist": false,
-             "hasBeenDrawn": false
-             },
-             {
-             "name": "🎙Brett",
+             "name": "Brett",
              "iconImage":"man-1",
              "titleForLabel":"singer 1",
              "positionX": 85,
@@ -265,7 +241,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙Michelle",
+             "name": "Michelle",
              "iconImage":"woman-1",
              "titleForLabel":"singer 2",
              "positionX": 170,
@@ -277,7 +253,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙Jack",
+             "name": "Jack",
              "iconImage":"man-2",
              "titleForLabel":"singer 3",
              "positionX": 255,
@@ -289,7 +265,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙Katie",
+             "name": "Katie",
              "iconImage":"woman-2",
              "titleForLabel":"singer 4",
              "positionX": 340,
@@ -301,7 +277,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙TJ",
+             "name": "TJ",
              "iconImage":"man-3",
              "titleForLabel":"singer 5",
              "positionX": 430,
@@ -313,7 +289,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙Monica",
+             "name": "Monica",
              "iconImage":"woman-3",
              "titleForLabel":"singer 6",
              "positionX": 520,
@@ -325,7 +301,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙Skyler",
+             "name": "Skyler",
              "iconImage":"man-4",
              "titleForLabel":"singer 7",
              "positionX": 605,
@@ -337,7 +313,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎙Mary",
+             "name": "Mary",
              "iconImage":"woman-4",
              "titleForLabel":"singer 8",
              "positionX": 690,
@@ -349,7 +325,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤Nathan",
+             "name": "Nathan",
              "iconImage":"man-5",
              "titleForLabel":"singer 9",
              "positionX": 780,
@@ -361,7 +337,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤Jenny",
+             "name": "Jenny",
              "iconImage":"woman-5",
              "titleForLabel":"singer 10",
              "positionX": 870,
@@ -373,7 +349,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤Kyle",
+             "name": "Kyle",
              "iconImage":"man-6",
              "titleForLabel":"singer 11",
              "positionX": 130,
@@ -385,7 +361,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤Shelly",
+             "name": "Shelly",
              "iconImage":"woman-6",
              "titleForLabel":"singer 12",
              "positionX": 225,
@@ -397,7 +373,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤Robert",
+             "name": "Robert",
              "iconImage":"man-7",
              "titleForLabel":"singer 13",
              "positionX": 320,
@@ -409,7 +385,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤Sharon",
+             "name": "Sharon",
              "iconImage":"woman-7",
              "titleForLabel":"singer 14",
              "positionX": 415,
@@ -421,7 +397,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤Billy",
+             "name": "Billy",
              "iconImage":"man-8",
              "titleForLabel":"singer 15",
              "positionX": 510,
@@ -433,7 +409,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤Brad",
+             "name": "Brad",
              "iconImage":"man",
              "titleForLabel":"singer 16",
              "positionX": 605,
@@ -445,7 +421,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "🎤Teresa",
+             "name": "Teresa",
              "iconImage":"woman",
              "titleForLabel":"singer 17",
              "positionX": 700,
@@ -453,18 +429,6 @@
              "width": 68,
              "height": 68,
              "uniqueID": 971,
-             "doesExist": false,
-             "hasBeenDrawn": false
-             },
-             {
-             "name": "click",
-             "iconImage":"metronome.png",
-             "titleForLabel":"click",
-             "positionX": 50,
-             "positionY": 170,
-             "width": 68,
-             "height": 68,
-             "uniqueID": 972,
              "doesExist": false,
              "hasBeenDrawn": false
              }

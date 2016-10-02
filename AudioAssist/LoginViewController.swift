@@ -132,7 +132,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        if textField == emailTextField && emailTextField.text?.characters.count>0
+        if textField == emailTextField && emailTextField.text?.characters.count > 0
         {
             emailTextField.resignFirstResponder()
             if passwordTextField.text?.characters.count == 0
@@ -140,7 +140,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
                 passwordTextField.becomeFirstResponder()
             }
         }
-        else if textField == passwordTextField && passwordTextField.text?.characters.count>0
+        else if textField == passwordTextField && passwordTextField.text?.characters.count > 0
         {
             emailTextField.resignFirstResponder()
             if sessionIDtextfield.text?.characters.count == 0
@@ -161,13 +161,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     
     func keyboardDidShow(notification: NSNotification)
     {
-        let height = notification.userInfo![UIKeyboardFrameEndUserInfoKey]?.CGRectValue().height
-        toolbarBottomConstraint.constant = height!
+//        let height = notification.userInfo![UIKeyboardFrameEndUserInfoKey]?.CGRectValue().height
+//        toolbarBottomConstraint.constant = height!
     }
     
     func keyboardWillHide(notification: NSNotification)
     {
-        toolbarBottomConstraint.constant = 0.0
+        //toolbarBottomConstraint.constant = 0.0
     }
     
 
