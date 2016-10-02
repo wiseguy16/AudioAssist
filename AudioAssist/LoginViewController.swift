@@ -70,7 +70,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     // MARK: - Action handlers
     
     
-    @IBAction func signIn(sender: UIBarButtonItem)
+    @IBAction func signIn(sender: UIButton)
     {
         if let email = emailTextField.text, let password = passwordTextField.text
         {
@@ -89,7 +89,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     }
     
     
-    @IBAction func registeruser(sender: UIBarButtonItem)
+    @IBAction func registeruser(sender: UIButton)
     {
         let firebaseAuth = FIRAuth.auth()
         if let email = emailTextField.text, let password = passwordTextField.text
