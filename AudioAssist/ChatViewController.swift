@@ -521,7 +521,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     
     @IBAction func hideTapped(sender: UIButton)
     {
-           configureDatabase()
+           //configureDatabase()
            refreshPositions()
             
     }

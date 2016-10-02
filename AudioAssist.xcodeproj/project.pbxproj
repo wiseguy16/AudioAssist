@@ -22,10 +22,6 @@
 		4A0D3D3E1D99E3E800B79F75 /* LayoutConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */; };
 		4A0D3D411D99E49B00B79F75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D401D99E49B00B79F75 /* GoogleService-Info.plist */; };
 		4A0D3D521D99E57500B79F75 /* stageOverheadCropped.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D421D99E57500B79F75 /* stageOverheadCropped.png */; };
-		4A0D3D531D99E57500B79F75 /* Hand Down-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D431D99E57500B79F75 /* Hand Down-48.png */; };
-		4A0D3D541D99E57500B79F75 /* Hand Left-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D441D99E57500B79F75 /* Hand Left-48.png */; };
-		4A0D3D551D99E57500B79F75 /* Hand Right-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D451D99E57500B79F75 /* Hand Right-48.png */; };
-		4A0D3D561D99E57500B79F75 /* Hand Up-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D461D99E57500B79F75 /* Hand Up-48.png */; };
 		4A0D3D571D99E57500B79F75 /* electric-guitar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D471D99E57500B79F75 /* electric-guitar.png */; };
 		4A0D3D581D99E57500B79F75 /* stageOverhead.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D481D99E57500B79F75 /* stageOverhead.png */; };
 		4A0D3D591D99E57500B79F75 /* checkedRequest.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D491D99E57500B79F75 /* checkedRequest.png */; };
@@ -63,10 +59,6 @@
 		4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfigTableViewController.swift; sourceTree = "<group>"; };
 		4A0D3D401D99E49B00B79F75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A0D3D421D99E57500B79F75 /* stageOverheadCropped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stageOverheadCropped.png; sourceTree = "<group>"; };
-		4A0D3D431D99E57500B79F75 /* Hand Down-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand Down-48.png"; sourceTree = "<group>"; };
-		4A0D3D441D99E57500B79F75 /* Hand Left-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand Left-48.png"; sourceTree = "<group>"; };
-		4A0D3D451D99E57500B79F75 /* Hand Right-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand Right-48.png"; sourceTree = "<group>"; };
-		4A0D3D461D99E57500B79F75 /* Hand Up-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hand Up-48.png"; sourceTree = "<group>"; };
 		4A0D3D471D99E57500B79F75 /* electric-guitar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "electric-guitar.png"; sourceTree = "<group>"; };
 		4A0D3D481D99E57500B79F75 /* stageOverhead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stageOverhead.png; sourceTree = "<group>"; };
 		4A0D3D491D99E57500B79F75 /* checkedRequest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedRequest.png; sourceTree = "<group>"; };
@@ -133,10 +125,6 @@
 				4A0D3D1E1D99E24300B79F75 /* Assets.xcassets */,
 				4A0D3D201D99E24300B79F75 /* LaunchScreen.storyboard */,
 				4A0D3D421D99E57500B79F75 /* stageOverheadCropped.png */,
-				4A0D3D431D99E57500B79F75 /* Hand Down-48.png */,
-				4A0D3D441D99E57500B79F75 /* Hand Left-48.png */,
-				4A0D3D451D99E57500B79F75 /* Hand Right-48.png */,
-				4A0D3D461D99E57500B79F75 /* Hand Up-48.png */,
 				4A0D3D471D99E57500B79F75 /* electric-guitar.png */,
 				4A0D3D481D99E57500B79F75 /* stageOverhead.png */,
 				4A0D3D491D99E57500B79F75 /* checkedRequest.png */,
@@ -234,7 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A0D3D5A1D99E57500B79F75 /* uncheckedRequest.png in Resources */,
-				4A0D3D561D99E57500B79F75 /* Hand Up-48.png in Resources */,
 				4A0D3D2A1D99E28700B79F75 /* Main.storyboard in Resources */,
 				4A0D3D5D1D99E57500B79F75 /* Unchecked@3x.png in Resources */,
 				4A0D3D5E1D99E57500B79F75 /* metronome.png in Resources */,
@@ -243,16 +230,13 @@
 				4A0D3D591D99E57500B79F75 /* checkedRequest.png in Resources */,
 				4A0D3D601D99E57500B79F75 /* keyboard.png in Resources */,
 				4A0D3D5B1D99E57500B79F75 /* guitar.png in Resources */,
-				4A0D3D541D99E57500B79F75 /* Hand Left-48.png in Resources */,
 				4A0D3D521D99E57500B79F75 /* stageOverheadCropped.png in Resources */,
-				4A0D3D531D99E57500B79F75 /* Hand Down-48.png in Resources */,
 				4A0D3D571D99E57500B79F75 /* electric-guitar.png in Resources */,
 				4A0D3D5F1D99E57500B79F75 /* piano.png in Resources */,
 				4A0D3D411D99E49B00B79F75 /* GoogleService-Info.plist in Resources */,
 				4A0D3D221D99E24300B79F75 /* LaunchScreen.storyboard in Resources */,
 				4A0D3D1F1D99E24300B79F75 /* Assets.xcassets in Resources */,
 				4A0D3D581D99E57500B79F75 /* stageOverhead.png in Resources */,
-				4A0D3D551D99E57500B79F75 /* Hand Right-48.png in Resources */,
 				4A0D3D611D99E57500B79F75 /* drum.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
