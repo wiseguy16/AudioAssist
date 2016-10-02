@@ -20,8 +20,8 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
     
     var arrayOfMessages: [Message] = []
     
-    let checkImage = UIImage(named: "checkedRequest.png")
-    let unCheckImage = UIImage(named: "uncheckedRequest.png")
+    let checkImage = UIImage(named: "CheckmarkFull_icon")
+    let unCheckImage = UIImage(named: "CheckMarkEmpty_icon")
     
 //    lazy var refreshControl: UIRefreshControl = {
 //        let refreshControl = UIRefreshControl()

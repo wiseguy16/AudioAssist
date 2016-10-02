@@ -18,6 +18,9 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
     
     var toBeAddedMusicians: [Musician] = []
     
+    let addImage = UIImage(named: "EmptyAdd_icon")
+    let addedImage = UIImage(named: "AddedFull_icon")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMusicianOptions()
@@ -26,7 +29,7 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         //var uniqueTagID = Int(uniqueTagIDtemp)
       //  var uniqueTagID = arc4random_uniform(9999) % 10
 
-        // Uncomment the following line to preserve selection between presentations
+        // Uncomment the following line to preserve selection between presentations tiny change
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -68,11 +71,11 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         
             if matchesFound.count > 0
             {
-                cell.addMusicianButton.backgroundColor = UIColor.blueColor()
+                cell.addMusicianButton.setImage(addedImage, forState: .Normal)
             }
             else
             {
-              cell.addMusicianButton.backgroundColor = UIColor.whiteColor()
+              cell.addMusicianButton.setImage(addImage, forState: .Normal)
             }
         
         
@@ -104,10 +107,12 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         let aMusician = arrayOfOptions[thisIndexPath!.row]
         aMusician.uniqueID = uniqueTagID  //Int(uniqueTagID)
         
-        if sender.backgroundColor == UIColor.blueColor()
+        //if sender.backgroundColor == UIColor.blueColor()
+            if sender.imageView?.image == addedImage
         {
             // cell is already selected, unselect it
-            sender.backgroundColor = UIColor.whiteColor()
+            sender.setImage(addImage, forState: .Normal)
+           // sender.backgroundColor = UIColor.whiteColor()
             if toBeAddedMusicians.count > 0
             {
                 var myIndex = 0
@@ -126,10 +131,12 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
                  //removeAtIndex((thisIndexPath?.row)!)
             }
         }
-        else if sender.backgroundColor == UIColor.whiteColor()
+        //else if sender.backgroundColor == UIColor.whiteColor()
+        else if sender.imageView?.image == addImage
         {
             // cell is not selected, select it
-            sender.backgroundColor = UIColor.blueColor()
+            //sender.backgroundColor = UIColor.blueColor()
+            sender.setImage(addedImage, forState: .Normal)
             toBeAddedMusicians.append(aMusician)
         }
         

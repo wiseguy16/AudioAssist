@@ -19,6 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     
     @IBOutlet weak var toolbarBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var loginConstaint: NSLayoutConstraint!
    
     
  //   var delegate: LoginViewControllerDelegate?
@@ -142,9 +143,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         }
         else if textField == passwordTextField && passwordTextField.text?.characters.count > 0
         {
-            emailTextField.resignFirstResponder()
-            if sessionIDtextfield.text?.characters.count == 0
+            passwordTextField.resignFirstResponder()
+            if emailTextField.text?.characters.count == 0
             {
+                //passwordTextField.text = "Please create a password"
                 emailTextField.becomeFirstResponder()
             }
         }
@@ -161,13 +163,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     
     func keyboardDidShow(notification: NSNotification)
     {
-//        let height = notification.userInfo![UIKeyboardFrameEndUserInfoKey]?.CGRectValue().height
-//        toolbarBottomConstraint.constant = height!
+        let height = notification.userInfo![UIKeyboardFrameEndUserInfoKey]?.CGRectValue().height
+        loginConstaint.constant = loginConstaint.constant - (height! / 4)
     }
     
     func keyboardWillHide(notification: NSNotification)
     {
-        //toolbarBottomConstraint.constant = 0.0
+        loginConstaint.constant = 0.0
     }
     
 
