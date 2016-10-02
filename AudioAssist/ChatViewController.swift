@@ -33,6 +33,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     @IBOutlet weak var backgroundForMovableIcons: UIView!
     
     @IBOutlet weak var deleteIconsSwitch: UISwitch!
+    @IBOutlet weak var deleteLabel: UILabel!
     
     
     
@@ -238,11 +239,13 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         
         if deleteIconsSwitch.on
         {
+            deleteLabel.text = "Delete is ON"
             backgroundForMovableIcons.backgroundColor = UIColor.redColor()
-            backgroundForMovableIcons.alpha = 0.1
+            backgroundForMovableIcons.alpha = 0.15
         }
         else if !deleteIconsSwitch.on
         {
+            deleteLabel.text = "Delete Icons"
             backgroundForMovableIcons.alpha = 0
         }
     }
@@ -257,7 +260,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         }
         else if !lockSwitch.on
         {
-            lockLabel.text = "Icons unlocked"
+            lockLabel.text = "Move Icons!!"
             backgroundForMovableIcons.backgroundColor = UIColor.greenColor()
             backgroundForMovableIcons.alpha = 0.1
         }
