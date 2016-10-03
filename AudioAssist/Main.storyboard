@@ -332,11 +332,7 @@
                                     <segue destination="pSw-ko-D7l" kind="presentation" identifier="ConfigureSegue" id="S9N-vz-4Pi"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Sign Out" id="ii6-wf-Tkd">
-                                <connections>
-                                    <action selector="signOut:" destination="CV6-ec-sTN" id="YOl-Id-qIe"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem title="Sign Out" id="ii6-wf-Tkd"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -444,6 +440,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Request Log" id="plv-rL-M4Y">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="VD0-5F-qRM">
+                            <connections>
+                                <action selector="signOut:" destination="V3c-Gl-iZ3" id="i2o-aT-N8E"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Stage View" id="fHO-LF-JUI">
                             <connections>
                                 <segue destination="lL1-e6-wud" kind="showDetail" identifier="StageViewSegue" id="3d2-wD-LYm">
@@ -828,7 +829,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yH9-U2-Ram" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-297" y="2750"/>
+            <point key="canvasLocation" x="-278" y="2789"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gyO-F2-PI8">

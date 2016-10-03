@@ -259,6 +259,21 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
     {
         return true
     }
+    
+    @IBAction func signOut(sender: UIBarButtonItem)
+    {
+        do {
+            try FIRAuth.auth()?.signOut()
+            AppState.sharedInstance.signedIn = false
+            print("Sign Out successfull")
+           // performSegueWithIdentifier("ModalLoginSegue", sender: self)
+        } catch let signOutError as NSError
+        {
+            print("Error signing out: \(signOutError)")
+        }
+        
+    }
+
 
    
     /*

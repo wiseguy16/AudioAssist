@@ -20,10 +20,6 @@
 		4A0D3D3C1D99E3E800B79F75 /* ConfigOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D331D99E3E800B79F75 /* ConfigOptionsCell.swift */; };
 		4A0D3D3E1D99E3E800B79F75 /* LayoutConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */; };
 		4A0D3D411D99E49B00B79F75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D401D99E49B00B79F75 /* GoogleService-Info.plist */; };
-		4A0D3D591D99E57500B79F75 /* checkedRequest.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D491D99E57500B79F75 /* checkedRequest.png */; };
-		4A0D3D5A1D99E57500B79F75 /* uncheckedRequest.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4A1D99E57500B79F75 /* uncheckedRequest.png */; };
-		4A0D3D5C1D99E57500B79F75 /* Checked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4C1D99E57500B79F75 /* Checked@3x.png */; };
-		4A0D3D5D1D99E57500B79F75 /* Unchecked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D3D4D1D99E57500B79F75 /* Unchecked@3x.png */; };
 		4A4244081DA0135400958CEB /* AudioAssistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4244071DA0135400958CEB /* AudioAssistTableViewController.swift */; };
 		4A42440A1DA0138B00958CEB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4244091DA0138B00958CEB /* ChatViewController.swift */; };
 		4A42440C1DA013B300958CEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42440B1DA013B300958CEB /* AppDelegate.swift */; };
@@ -48,10 +44,6 @@
 		4A0D3D331D99E3E800B79F75 /* ConfigOptionsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigOptionsCell.swift; sourceTree = "<group>"; };
 		4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfigTableViewController.swift; sourceTree = "<group>"; };
 		4A0D3D401D99E49B00B79F75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		4A0D3D491D99E57500B79F75 /* checkedRequest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedRequest.png; sourceTree = "<group>"; };
-		4A0D3D4A1D99E57500B79F75 /* uncheckedRequest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedRequest.png; sourceTree = "<group>"; };
-		4A0D3D4C1D99E57500B79F75 /* Checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked@3x.png"; sourceTree = "<group>"; };
-		4A0D3D4D1D99E57500B79F75 /* Unchecked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Unchecked@3x.png"; sourceTree = "<group>"; };
 		4A4244071DA0135400958CEB /* AudioAssistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioAssistTableViewController.swift; sourceTree = "<group>"; };
 		4A4244091DA0138B00958CEB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		4A42440B1DA013B300958CEB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,22 +87,18 @@
 				4A0D3D2B1D99E3DC00B79F75 /* musicianOptions.json */,
 				4A42440D1DA1787700958CEB /* GothamHTF-Bold.otf */,
 				4A42440B1DA013B300958CEB /* AppDelegate.swift */,
-				4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */,
 				4A0D3D2D1D99E3E800B79F75 /* AppState.swift */,
 				4A0D3D2E1D99E3E800B79F75 /* Musician.swift */,
 				4A0D3D2F1D99E3E800B79F75 /* Message.swift */,
-				4A4244091DA0138B00958CEB /* ChatViewController.swift */,
-				4A0D3D311D99E3E800B79F75 /* LoginViewController.swift */,
 				4A0D3D321D99E3E800B79F75 /* MessageCell.swift */,
 				4A0D3D331D99E3E800B79F75 /* ConfigOptionsCell.swift */,
+				4A0D3D311D99E3E800B79F75 /* LoginViewController.swift */,
+				4A0D3D351D99E3E800B79F75 /* LayoutConfigTableViewController.swift */,
+				4A4244091DA0138B00958CEB /* ChatViewController.swift */,
 				4A4244071DA0135400958CEB /* AudioAssistTableViewController.swift */,
 				4A0D3D291D99E28700B79F75 /* Main.storyboard */,
 				4A0D3D1E1D99E24300B79F75 /* Assets.xcassets */,
 				4A0D3D201D99E24300B79F75 /* LaunchScreen.storyboard */,
-				4A0D3D491D99E57500B79F75 /* checkedRequest.png */,
-				4A0D3D4A1D99E57500B79F75 /* uncheckedRequest.png */,
-				4A0D3D4C1D99E57500B79F75 /* Checked@3x.png */,
-				4A0D3D4D1D99E57500B79F75 /* Unchecked@3x.png */,
 				4A0D3D231D99E24300B79F75 /* Info.plist */,
 				4A0D3D401D99E49B00B79F75 /* GoogleService-Info.plist */,
 				4A0D3D1B1D99E24300B79F75 /* AudioAssist.xcdatamodeld */,
@@ -196,12 +184,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A0D3D5A1D99E57500B79F75 /* uncheckedRequest.png in Resources */,
 				4A0D3D2A1D99E28700B79F75 /* Main.storyboard in Resources */,
-				4A0D3D5D1D99E57500B79F75 /* Unchecked@3x.png in Resources */,
-				4A0D3D5C1D99E57500B79F75 /* Checked@3x.png in Resources */,
 				4A0D3D2C1D99E3DC00B79F75 /* musicianOptions.json in Resources */,
-				4A0D3D591D99E57500B79F75 /* checkedRequest.png in Resources */,
 				4A0D3D411D99E49B00B79F75 /* GoogleService-Info.plist in Resources */,
 				4A0D3D221D99E24300B79F75 /* LaunchScreen.storyboard in Resources */,
 				4A0D3D1F1D99E24300B79F75 /* Assets.xcassets in Resources */,

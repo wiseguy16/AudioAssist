@@ -37,7 +37,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "Acoustic Guitar",
+             "name": "Aco. Guitar",
              "iconImage":"Guitar_Acoustic",
              "titleForLabel":"Acoustic Guitar",
              "positionX": 100,
@@ -49,7 +49,7 @@
              "hasBeenDrawn": false
              },
              {
-             "name": "Electric Guitar",
+             "name": "Elec. Guitar",
              "iconImage":"Guitar_Electric",
              "titleForLabel":"Electric_Guitar",
              "positionX": 200,
