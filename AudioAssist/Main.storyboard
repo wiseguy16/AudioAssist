@@ -617,7 +617,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Configure Musicians" id="g0b-x1-QO3">
-                        <barButtonItem key="leftBarButtonItem" title="Done" id="wyx-VV-vLX">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="wyx-VV-vLX">
                             <connections>
                                 <action selector="exitOnLeftTapped:" destination="v0W-6d-q2F" id="nRH-Mk-xlO"/>
                             </connections>
