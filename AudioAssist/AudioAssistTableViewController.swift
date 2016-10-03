@@ -57,6 +57,7 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         self.tableView.addSubview(refreshControl)    //addSubview(self.refreshControl)
         
         configureDatabase()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,9 +71,31 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         super.viewWillAppear(animated)
     }
     
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        if !AppState.sharedInstance.signedIn
+        {
+            performSegueWithIdentifier("ModalLoginSegue", sender: self)
+        }
+        
+        
+        
+        
+    }
+
+    
     func handleRefresh(refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
         // Fetch more objects from a web service, for example...
+        print(arrayOfMessages.count)
+        if arrayOfMessages.count == 0
+        {
+            configureDatabase()
+            
+        }
+        
         for deleteObject in arrayOfMessages
         {
             if deleteObject.completed == true
@@ -266,7 +289,7 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
             try FIRAuth.auth()?.signOut()
             AppState.sharedInstance.signedIn = false
             print("Sign Out successfull")
-           // performSegueWithIdentifier("ModalLoginSegue", sender: self)
+            performSegueWithIdentifier("ModalLoginSegue", sender: self)
         } catch let signOutError as NSError
         {
             print("Error signing out: \(signOutError)")

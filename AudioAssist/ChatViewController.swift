@@ -110,18 +110,18 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     
   
     
-    override func viewDidAppear(animated: Bool)
-    {
-        super.viewDidAppear(animated)
-        if !AppState.sharedInstance.signedIn
-        {
-            performSegueWithIdentifier("ModalLoginSegue", sender: self)
-        }
-        
-        
-        
-        
-    }
+//    override func viewDidAppear(animated: Bool)
+//    {
+//        super.viewDidAppear(animated)
+//        if !AppState.sharedInstance.signedIn
+//        {
+//            performSegueWithIdentifier("ModalLoginSegue", sender: self)
+//        }
+//        
+//        
+//        
+//        
+//    }
     
     override func didReceiveMemoryWarning()
     {

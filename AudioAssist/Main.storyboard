@@ -6,7 +6,6 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--AudioAssist-->
@@ -326,14 +325,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="AudioAssist" id="Fud-ly-lB9">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Configure" id="WPt-8L-dQo">
-                                <connections>
-                                    <segue destination="pSw-ko-D7l" kind="presentation" identifier="ConfigureSegue" id="S9N-vz-4Pi"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Sign Out" id="ii6-wf-Tkd"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Configure" id="WPt-8L-dQo">
+                            <connections>
+                                <segue destination="pSw-ko-D7l" kind="presentation" identifier="ConfigureSegue" id="S9N-vz-4Pi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundForMovableIcons" destination="K2w-Rn-etG" id="0lK-cv-Tqf"/>
@@ -345,7 +341,6 @@
                         <outlet property="singleTapRecognizer" destination="2om-1U-u2V" id="oaw-2D-gXZ"/>
                         <outlet property="stageBackground" destination="qX7-m2-S1Q" id="99a-30-Huw"/>
                         <outlet property="unlockLabel" destination="IAb-Le-w3l" id="nrV-Z2-QOE"/>
-                        <segue destination="Vm5-FJ-Z9h" kind="presentation" identifier="ModalLoginSegue" id="Z57-gc-du6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUO-x3-Phb" sceneMemberID="firstResponder"/>
@@ -453,6 +448,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Vm5-FJ-Z9h" kind="presentation" identifier="ModalLoginSegue" id="cCE-H4-yMC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRv-cv-fID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -627,7 +625,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yab-Oi-GZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1333" y="1991"/>
+            <point key="canvasLocation" x="1333" y="2011"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ohn-Ug-I4Z">
@@ -829,7 +827,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yH9-U2-Ram" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-278" y="2789"/>
+            <point key="canvasLocation" x="-323" y="132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gyO-F2-PI8">
@@ -847,7 +845,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xI7-X7-n1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1149" y="2011"/>
+            <point key="canvasLocation" x="-1149" y="2022"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Yz-GC-mOT">
@@ -865,7 +863,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLU-y8-DzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481" y="1991"/>
+            <point key="canvasLocation" x="484" y="2011"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HHa-Xm-JSd">
