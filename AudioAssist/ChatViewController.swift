@@ -31,10 +31,12 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     var newCenter: CGPoint?
     
     @IBOutlet weak var backgroundForMovableIcons: UIView!
+    @IBOutlet weak var coverUpPortraitView: UIView!
     
     @IBOutlet weak var deleteIconsSwitch: UISwitch!
     @IBOutlet weak var deleteLabel: UILabel!
     
+    @IBOutlet weak var coverUpLandscapeView: UIView!
     
     
     @IBOutlet weak var lockLabel: UILabel!
@@ -63,14 +65,12 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     var isChecked = false
     
     
-    
-   
-    
-    let checkImage = UIImage(named: "checkedRequest.png")
-    let unCheckImage = UIImage(named: "uncheckedRequest.png")
-    let checkImageName = "checkedRequest.png"
-    let unCheckImageName = "uncheckedRequest.png"
-    
+    enum UIUserInterfaceIdiom : Int {
+        case Unspecified
+        case Phone // iPhone and iPod touch style UI
+        case Pad // iPad style UI
+    }
+
     
     
     var ref: FIRDatabaseReference!
@@ -92,6 +92,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         
         configureMusicians()
         
+       // checkDevice()
+        
         
         
       //  NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
@@ -104,24 +106,31 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        if self.checkDevice() == true
+        {
         reloadMusicians()
+        }
+        
     }
+    
+    
     
     
   
     
-//    override func viewDidAppear(animated: Bool)
-//    {
-//        super.viewDidAppear(animated)
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        //checkDevice()
 //        if !AppState.sharedInstance.signedIn
 //        {
 //            performSegueWithIdentifier("ModalLoginSegue", sender: self)
 //        }
-//        
-//        
-//        
-//        
-//    }
+        
+        
+        
+        
+    }
     
     override func didReceiveMemoryWarning()
     {
@@ -129,10 +138,37 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func checkDevice() -> Bool
+    {
+        switch UIDevice.currentDevice().userInterfaceIdiom
+        {
+        case .Phone:
+                        view.bringSubviewToFront(coverUpPortraitView)
+                        view.bringSubviewToFront(coverUpLandscapeView)
+                        return false
+        // It's an iPhone
+            
+        case .Pad:
+                        return true
+        // It's an iPad
+            
+        case .Unspecified:
+                            return false
+            
+        // Uh, oh! What could it be?
+        default:
+                        return false
+        }
+    }
+    
+    
     deinit
     {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+    
+    
     
     func reloadMusicians()
     {
@@ -193,44 +229,43 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
               view.removeFromSuperview()
             }
             
-            
         }
         for item in arrayOfMusicians
-        {
-            
-            
-//            if item.doesExist == false
-//            {
-                let tempID = item.uniqueID
-            
-                let aButton = UIButton()
-                aButton.frame = CGRect(x: item.positionX, y: item.positionY, width: item.width + 10, height: item.height)
-                aButton.setImage(UIImage(named: item.iconImage), forState: .Normal)
-                aButton.setTitle(item.name, forState: .Normal)
-                aButton.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
-                
-                aButton.tag = tempID
-                self.view.addSubview(aButton)
-                let longPrssGesture = UILongPressGestureRecognizer()
-                aButton.addGestureRecognizer(longPrssGesture)
-                aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
-                
-                let dubTapGesture = UITapGestureRecognizer()
-                dubTapGesture.numberOfTapsRequired = 2
-                aButton.addGestureRecognizer(dubTapGesture)
-                aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
+            {
                 
                 
-                let aLabel = makeLabel(item)
+    //            if item.doesExist == false
+    //            {
+                    let tempID = item.uniqueID
+                
+                    let aButton = UIButton()
+                    aButton.frame = CGRect(x: item.positionX, y: item.positionY, width: item.width + 10, height: item.height)
+                    aButton.setImage(UIImage(named: item.iconImage), forState: .Normal)
+                    aButton.setTitle(item.name, forState: .Normal)
+                    aButton.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside)
+                    
+                    aButton.tag = tempID
+                    self.view.addSubview(aButton)
+                    let longPrssGesture = UILongPressGestureRecognizer()
+                    aButton.addGestureRecognizer(longPrssGesture)
+                    aButton.addTarget(self, action: #selector(buttonDragged), forControlEvents: .TouchDragInside)
+                    
+                    let dubTapGesture = UITapGestureRecognizer()
+                    dubTapGesture.numberOfTapsRequired = 2
+                    aButton.addGestureRecognizer(dubTapGesture)
+                    aButton.addTarget(self, action: #selector(doubleTappedWasInitiated), forControlEvents: .TouchUpInside)
+                    
+                    
+                    let aLabel = makeLabel(item)
 
-                aButton.addSubview(aLabel)
-            
-            
-               // item.doesExist = true
-               // sendMusicianToFirebase(item)
-                print("\(arrayOfMusicians.count)")
-            //}
-        }
+                    aButton.addSubview(aLabel)
+                
+                
+                   // item.doesExist = true
+                   // sendMusicianToFirebase(item)
+                  //  print("\(arrayOfMusicians.count)")
+                //}
+            }
     }
 
     
@@ -355,8 +390,11 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
                 }
             }
             self.arrayOfMusicians = newArrayOfMusicians
-            print("line 383")
+           // print("line 383")
+            if self.checkDevice() == true
+            {
             self.displayMusiciansFromDatabase()
+            }
         })
         
 
@@ -429,8 +467,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
             
         })
         
-        
     }
+    
     
     func musicianWasChosen(pickedMusicians: [Musician])
     {
@@ -438,6 +476,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         arrayOfMusicians.appendContentsOf(pickedMusicians)
         //tableView.reloadData()
     }
+    
     
     func doubleTappedWasInitiated(aButton: UIButton)
     {
@@ -473,11 +512,9 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
                     let messageData = Message(request: msg, name: username, completed: completed, removeRequest: removeRequest)
                    // let requestRef = self.ref.child("messages").childByAutoId()
                     
-                    
                     ref.child("messages").childByAutoId().setValue(["request": msg, "name": username, "completed": completed, "removeRequest": removeRequest])
                     self.arrayOfMessages.append(messageData)
                     //Push to Firebase Database
-                    
                     
                     chatTextField.text = ""
                 }
@@ -524,10 +561,12 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     
     @IBAction func hideTapped(sender: UIButton)
     {
-           //configureDatabase()
+           //This is the REFRESH ICONS Button action
            refreshPositions()
             
     }
+    
+    // MARK: textfield helper methods
     
     func keyboardDidShow(notification: NSNotification)
     {
@@ -539,6 +578,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     {
         chattextFieldConstraint.constant = 8.0
     }
+    
     
     
     @IBAction func iconPressed(sender: UITapGestureRecognizer)
@@ -582,16 +622,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         return true
     }
     
-    
-    func handleTap(recognizer: UITapGestureRecognizer)
-    {
-        let myButton = recognizer.view as! UIImageView
-        //let myButton = recognizer.view as! UIButton
-        var newPoint: CGPoint = (recognizer.view?.center)!
-        newPoint = myButton.center
-        
-
-    }
     
 
 }

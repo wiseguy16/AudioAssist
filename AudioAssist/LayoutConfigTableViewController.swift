@@ -78,41 +78,23 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
               cell.addMusicianButton.setImage(addImage, forState: .Normal)
             }
         
-        
-        
-        
-        
-        //cell.addConfirmImage.image = UIImage(named: "add1")
-       // cell.addConfirmImage.alpha = 0
-        
-        //cell.addConfirmImage.alpha = 0
-
-        // Configure the cell...
-
         return cell
     }
     
     @IBAction func addMusicianTapped(sender: UIButton)
     {
-        wasAdded = !wasAdded
-        let tempBool = wasAdded
-       // let button = sender as! UIButton
         uniqueTagID = uniqueTagID + 1
         let view = sender.superview
         let cell = view!.superview as! ConfigOptionsCell
-        
-        
         
         let thisIndexPath = self.tableView?.indexPathForCell(cell)
         let aMusician = arrayOfOptions[thisIndexPath!.row]
         aMusician.uniqueID = uniqueTagID  //Int(uniqueTagID)
         
-        //if sender.backgroundColor == UIColor.blueColor()
             if sender.imageView?.image == addedImage
         {
             // cell is already selected, unselect it
             sender.setImage(addImage, forState: .Normal)
-           // sender.backgroundColor = UIColor.whiteColor()
             if toBeAddedMusicians.count > 0
             {
                 var myIndex = 0
@@ -128,50 +110,16 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
                         myIndex = myIndex + 1
                     }
                 }
-                 //removeAtIndex((thisIndexPath?.row)!)
             }
         }
-        //else if sender.backgroundColor == UIColor.whiteColor()
         else if sender.imageView?.image == addImage
         {
             // cell is not selected, select it
-            //sender.backgroundColor = UIColor.blueColor()
             sender.setImage(addedImage, forState: .Normal)
             toBeAddedMusicians.append(aMusician)
         }
         
         
-//        cell.addMusicianButton.setImage(UIImage(named: "guitar.png"), forState: .Normal)
-//         cell.addMusicianButton.setImage(UIImage(named: "piano.png"), forState: .Highlighted)
-//         cell.addMusicianButton.setImage(UIImage(named: "drum.png"), forState: .Selected)
-        
-        
-//        sender.setImage(UIImage(named: "guitar.png"), forState: .Normal)
-//        
-//        // Highlighted
-//        sender.setImage(UIImage(named: "piano.png"), forState: .Highlighted)
-//        
-//        // Selected
-//        sender.setImage(UIImage(named: "drum.png"), forState: .Selected)
-//        
-//        // Selected + Highlighted
-//        sender.setImage(UIImage(named: "keyboard.png"), forState: [.Selected, .Highlighted])
-       // sender.backgroundColor = UIColor.cyanColor()
-      //  UIView.animateWithDuration(0.3, animations: { sender.backgroundColor = UIColor.cyanColor()})
-//        UIView.animateWithDuration(0.3, animations: { 
-//            sender.backgroundColor = UIColor.cyanColor()
-//            }, completion: { UIView.animateWithDuration(0.3, animations: {
-//                sender.backgroundColor = UIColor.cyanColor() })
-//        })
-    
-    
-//        let contentView = sender.superview
-//        let cell = contentView!.superview as! ConfigOptionsCell
-//        let thisIndexPath = self.tableView?.cellForRowAtIndexPath(cell)    //   .indexPathForCell(cell)
-//        let aPodcast = podcastItems[thisIndexPath!.row]
-//        let theIndex: Int = indexPath.row
-//        let theZone = zones[indexPath.row]
-//        delegate!.musicianWasChosen(pickedMusician, theIndex: theIndex)
     }
     
     func loadMusicianOptions()
@@ -208,7 +156,6 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
     @IBAction func exitOnLeftTapped(sender: UIBarButtonItem)
     {
         // put delegate stuff here
-        
         
         delegate?.musicianWasChosen(toBeAddedMusicians)
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -247,62 +194,5 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
     
     
     
-//    
-//    @IBAction func exitOnTopTapped(sender: UIButton)
-//    {
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//
-//        
-//    }
-// 
-//    @IBAction func exitTapped(sender: UIBarButtonItem)
-//    {
-//       self.dismissViewControllerAnimated(true, completion: nil)
-//    }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -54,7 +54,7 @@ class Message
         var message = aSnap.value as! Dictionary<String, AnyObject>
         if let request = message["request"], let name = message["name"], let completed = message["completed"], let removeRequest = message["removeRequest"]
         {
-            var aMessage = Message(request: request as! String, name: name as! String, completed: completed as! Bool, removeRequest: removeRequest as! Bool)
+            let aMessage = Message(request: request as! String, name: name as! String, completed: completed as! Bool, removeRequest: removeRequest as! Bool)
             aMessage.ref = aSnap.ref
             
             return aMessage
