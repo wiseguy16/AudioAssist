@@ -19,6 +19,7 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
     
     
     var arrayOfMessages: [Message] = []
+    let iconWordsArray = ["Bongos", "Click", "Drums", "left", "Less", "More", "Piano", "right", "Saxophone", "Track", "Trumpet", "Violin", "Bass", "Instrument", "Singer", "Aco_Guitar", "Elec_Guitar", "Keyboard", "Muted"]
     
     let checkImage = UIImage(named: "CheckmarkFull_icon")
     let unCheckImage = UIImage(named: "CheckMarkEmpty_icon")
@@ -164,7 +165,7 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         let thisRequest = self.arrayOfMessages[indexPath.row]
         
         
-        cell.requestLabel.text = thisRequest.request
+        cell.requestLabel.attributedText = makeImageFromString("\(thisRequest.request)")
         
         if thisRequest.completed == true
         {
@@ -268,6 +269,35 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         }
         
     }
+    
+    func makeImageFromString(newWord: String) -> NSMutableAttributedString
+    {
+        let offsetY: CGFloat = -8.0
+        var image10String = NSAttributedString()
+        let iconatedString = NSMutableAttributedString()
+        let spaceString = NSAttributedString(string: " ")
+        let storeArray = newWord.componentsSeparatedByString(" ")
+        for checkWord in storeArray
+        {
+            if iconWordsArray.contains(checkWord)
+            {
+                let image10Attachment = NSTextAttachment()
+                image10Attachment.image = UIImage(named: "\(checkWord)")
+                image10Attachment.bounds = CGRectMake(0, offsetY, image10Attachment.image!.size.width, image10Attachment.image!.size.height)
+                image10String = NSAttributedString(attachment: image10Attachment)
+                //image10String.
+            }
+            else
+            {
+                image10String = NSAttributedString(string: "\(checkWord)")
+            }
+            iconatedString.appendAttributedString(image10String)
+            iconatedString.appendAttributedString(spaceString)
+        }
+        
+        return iconatedString
+    }
+
 
 
    
