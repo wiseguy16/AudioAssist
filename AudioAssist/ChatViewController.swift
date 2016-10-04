@@ -20,8 +20,12 @@ protocol PickMusicianDelegate
     func musicianWasChosen(pickedMusicians: [Musician])
 }
 
-class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate //, LoginViewControllerDelegate
+class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate //, LoginViewControllerDelegate
 {
+    
+    @IBOutlet weak var incomingNoteImage: UIImageView!
+    @IBOutlet weak var flagOutlet: UIButton!
+    
     
     var arrayOfMusicians: [Musician] = []
     var hasBeenDisplayedOnce = false
@@ -50,19 +54,20 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     @IBOutlet weak var newLabel2: UILabel!
     
     
-    @IBOutlet var monkeyPan: UIPanGestureRecognizer!
-    @IBOutlet var bananaPan: UIPanGestureRecognizer!
-    @IBOutlet var guitarPan: UIPanGestureRecognizer!
-    
     
      @IBOutlet weak var singleTapRecognizer: UITapGestureRecognizer!
     
     @IBOutlet weak var iconLabel: UILabel!
+    
     var canMoveIcons = false
     var toggledCompletion = false
     var requestsHidden = true
-    
     var isChecked = false
+    var ref: FIRDatabaseReference!
+    var refHandle: FIRDatabaseHandle!
+    var messages = Array<FIRDataSnapshot>()
+    var arrayOfMessages: [Message] = []
+    var messageRefHandles = Array<FIRDatabaseHandle>()
     
     
     enum UIUserInterfaceIdiom : Int {
@@ -73,13 +78,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
 
     
     
-    var ref: FIRDatabaseReference!
-    var refHandle: FIRDatabaseHandle!
-    var messages = Array<FIRDataSnapshot>()
-    
-    
-    var arrayOfMessages: [Message] = []
-     var messageRefHandles = Array<FIRDatabaseHandle>()
+   
    
     
     @IBOutlet weak var chattextFieldConstraint: NSLayoutConstraint!
@@ -168,6 +167,12 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    
+    
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
     
     
     func reloadMusicians()
@@ -355,8 +360,26 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
             let pickVC = navVC.viewControllers[0] as! LayoutConfigTableViewController
             pickVC.delegate = self
         }
+        else if segue.identifier == "popoverSegue"
+        {
+            let popoverViewController = segue.destinationViewController as! PopoverViewController
+            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            popoverViewController.popoverPresentationController!.delegate = self
+        }
+
         
     }
+    
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "popoverSegue" {
+//            let popoverViewController = segue.destinationViewController as! ChatViewController
+//            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+//            popoverViewController.popoverPresentationController!.delegate = self
+//        }
+//    }
+
+    
     
     func sendMusicianToFirebase(pickedMusician: Musician)
     {
@@ -460,14 +483,36 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
                 if let firebaseMessage = Message.convertSnapshotToMessage(item as! FIRDataSnapshot)
                 {
                     newArrayOfMessages.append(firebaseMessage)
+                    self.checkForNotes(firebaseMessage)
                 }
             }
             self.arrayOfMessages = newArrayOfMessages
-            self.messages.append(snapshot)
+           // self.messages.append(snapshot)
             
         })
         
     }
+    
+    func checkForNotes(request: Message)
+    {
+        let wordArray = request.request.componentsSeparatedByString(" ")
+        
+        if wordArray.contains("note") || wordArray.contains("Note")
+        {
+            flagOutlet.alpha = 1
+            flagOutlet.enabled = true
+          //  incomingNoteImage.alpha = 1
+            // turn on Mail light
+        }
+        else
+        {
+            flagOutlet.alpha = 0
+            flagOutlet.enabled = false
+          //  incomingNoteImage.alpha = 0
+        }
+        
+    }
+
     
     
     func musicianWasChosen(pickedMusicians: [Musician])
@@ -612,7 +657,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     @IBAction func requestTapped(sender: UIButton)
     {
         chatTextField.text = chatTextField.text! + " " + sender.currentTitle!
-        print("piano?")
+    
         
     }
     

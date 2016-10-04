@@ -19,7 +19,7 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
     
     
     var arrayOfMessages: [Message] = []
-    let iconWordsArray = ["Bongos", "Click", "Drums", "left", "Less", "More", "Piano", "right", "Saxophone", "Track", "Trumpet", "Violin", "Bass", "Instrument", "Singer", "Aco_Guitar", "Elec_Guitar", "Keyboard", "Muted"]
+    let iconWordsArray = ["Bongos", "Click", "Drums", "left", "Less", "More", "Piano", "right", "Saxophone", "Track", "Trumpet", "Violin", "Bass", "Instrument", "Singer", "Aco_Guitar", "Elec_Guitar", "Keyboard", "Muted", "note"]
     
     let checkImage = UIImage(named: "CheckmarkFull_icon")
     let unCheckImage = UIImage(named: "CheckMarkEmpty_icon")
