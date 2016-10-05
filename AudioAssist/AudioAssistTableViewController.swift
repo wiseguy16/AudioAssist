@@ -40,7 +40,7 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         refreshControl.addTarget(self, action: #selector(AudioAssistTableViewController.handleRefresh(_:)), forControlEvents: .ValueChanged)
         
         tableView.tableFooterView = UIView()   //  tableview.tableFooterView = UIView()
-        
+        //tableView.tableFooterView
         splitViewController?.delegate = self
        // splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
        // splitViewController?.preferredDisplayMode = .AllVisible
@@ -81,11 +81,9 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
             performSegueWithIdentifier("ModalLoginSegue", sender: self)
         }
         
-        
-        
-        
     }
-
+    
+    
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
@@ -180,6 +178,15 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
 
         
      }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40.0
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return "Pull To Clear Completed Requests"
+    }
+
     
 
     @IBAction func requestCompletedChecked(sender: UIButton)
