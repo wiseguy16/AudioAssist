@@ -20,11 +20,12 @@ protocol PickMusicianDelegate
     func musicianWasChosen(pickedMusicians: [Musician])
 }
 
-class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate //, LoginViewControllerDelegate
+class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate
 {
     
     @IBOutlet weak var incomingNoteImage: UIImageView!
     @IBOutlet weak var flagOutlet: UIButton!
+    @IBOutlet weak var flagCounterBadge: UILabel!
     
     
     var arrayOfMusicians: [Musician] = []
@@ -240,9 +241,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         for item in arrayOfMusicians
             {
                 
-                
-    //            if item.doesExist == false
-    //            {
                     let tempID = item.uniqueID
                 
                     let aButton = UIButton()
@@ -267,11 +265,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
 
                     aButton.addSubview(aLabel)
                 
-                
-                   // item.doesExist = true
-                   // sendMusicianToFirebase(item)
-                  //  print("\(arrayOfMusicians.count)")
-                //}
+            
             }
     }
 
@@ -372,15 +366,6 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         
     }
     
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "popoverSegue" {
-//            let popoverViewController = segue.destinationViewController as! ChatViewController
-//            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-//            popoverViewController.popoverPresentationController!.delegate = self
-//        }
-//    }
-
     
     
     func sendMusicianToFirebase(pickedMusician: Musician)
@@ -497,6 +482,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
             self.arrayOfMessages = newArrayOfMessages
            // self.messages.append(snapshot)
             self.turnOnFlag(newCount)
+            
+
         })
         
     }
@@ -523,10 +510,15 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
             // turn on Flag light
             flagOutlet.alpha = 1
             flagOutlet.enabled = true
+            flagCounterBadge.layer.masksToBounds = true
+            flagCounterBadge.layer.cornerRadius = 8
+            flagCounterBadge.alpha = 1
+            flagCounterBadge.text = "\(flagNumber)"
         }
         else
         {
             flagOutlet.alpha = 0
+            flagCounterBadge.alpha = 0
         }
         
     }
