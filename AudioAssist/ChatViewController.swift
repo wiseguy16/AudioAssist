@@ -59,6 +59,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     
     @IBOutlet weak var iconLabel: UILabel!
     
+    
+    var countFlags = 0
     var canMoveIcons = false
     var toggledCompletion = false
     var requestsHidden = true
@@ -478,40 +480,57 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
         ref.child("messages").observeEventType(.Value, withBlock: {
             (snapshot) -> Void in
             var newArrayOfMessages: [Message] = []
+            var newCount = 0
             for item in snapshot.children
             {
                 if let firebaseMessage = Message.convertSnapshotToMessage(item as! FIRDataSnapshot)
                 {
                     newArrayOfMessages.append(firebaseMessage)
-                    self.checkForNotes(firebaseMessage)
+                    self.countFlags = self.checkForNotes(firebaseMessage)
+                    if self.countFlags > 0
+                    {
+                        newCount = newCount + self.countFlags
+                    }
+
                 }
             }
             self.arrayOfMessages = newArrayOfMessages
            // self.messages.append(snapshot)
-            
+            self.turnOnFlag(newCount)
         })
         
     }
     
-    func checkForNotes(request: Message)
+    
+    func checkForNotes(request: Message) -> Int
     {
+        countFlags = 0
         let wordArray = request.request.componentsSeparatedByString(" ")
         
         if wordArray.contains("note") || wordArray.contains("Note")
         {
+            countFlags = countFlags + 1
+        }
+        return countFlags
+    }
+    
+    
+    func turnOnFlag(flagNumber: Int)
+    {
+        
+        if flagNumber > 0
+        {
+            // turn on Flag light
             flagOutlet.alpha = 1
             flagOutlet.enabled = true
-          //  incomingNoteImage.alpha = 1
-            // turn on Mail light
         }
         else
         {
             flagOutlet.alpha = 0
-            flagOutlet.enabled = false
-          //  incomingNoteImage.alpha = 0
         }
         
     }
+
 
     
     
@@ -560,6 +579,7 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
                     ref.child("messages").childByAutoId().setValue(["request": msg, "name": username, "completed": completed, "removeRequest": removeRequest])
                     self.arrayOfMessages.append(messageData)
                     //Push to Firebase Database
+                    chatTextField.resignFirstResponder()
                     
                     chatTextField.text = ""
                 }
@@ -600,6 +620,8 @@ class ChatViewController: UIViewController, PickMusicianDelegate, UITextFieldDel
     @IBAction func sendMessageTapped(sender: UIButton)
     {
         sendMessage(chatTextField.text)
+        //chatTextField.resignFirstResponder()
+        
         
     }
     
