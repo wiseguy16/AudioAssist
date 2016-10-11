@@ -22,7 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var loginConstaint: NSLayoutConstraint!
    
     
- //   var delegate: LoginViewControllerDelegate?
     
     override func viewDidLoad()
     {
@@ -32,7 +31,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
         
         
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) // Runs after the view is visible to user  PUT ANIMATION HERE!!!
@@ -146,16 +144,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate
             passwordTextField.resignFirstResponder()
             if emailTextField.text?.characters.count == 0
             {
-                //passwordTextField.text = "Please create a password"
                 emailTextField.becomeFirstResponder()
             }
         }
-//        else if textField == sessionIDtextfield && sessionIDtextfield.text?.characters.count>0
-//        {
-//            delegate!.didSetSessionID(sessionIDtextfield.text!)
-//           // setSessionIDName(sessionIDtextfield.text!)
-//            sessionIDtextfield.resignFirstResponder()
-//        }
+
         return false
     }
     
@@ -171,8 +163,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     {
         loginConstaint.constant = 0.0
     }
-    
-
     
     
     

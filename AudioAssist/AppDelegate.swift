@@ -22,21 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-       // splitViewController.delegate = self
-//        if let splitViewController = self.window!.rootViewController as? UISplitViewController
-//        {
-//            
-//            let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-//            navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-//            navigationController.topViewController!.navigationItem.leftItemsSupplementBackButton = true
-//            splitViewController.preferredDisplayMode = .PrimaryOverlay
-//            //
-//            // splitViewController.delegate = self
-//           // splitViewController.delegate = splitViewController
-//        }
-        
-      //  splitViewController.preferredDisplayMode = .PrimaryOverlay
-        
         FIRApp.configure()
 
         // Override point for customization after application launch.

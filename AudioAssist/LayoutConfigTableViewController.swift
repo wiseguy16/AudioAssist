@@ -25,15 +25,7 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
         super.viewDidLoad()
         loadMusicianOptions()
         uniqueTagID = uniqueTagID + 1
-         //uniqueTagID = Int(arc4random_uniform(9999))
-        //var uniqueTagID = Int(uniqueTagIDtemp)
-      //  var uniqueTagID = arc4random_uniform(9999) % 10
-
-        // Uncomment the following line to preserve selection between presentations tiny change
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+ 
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,13 +37,11 @@ class LayoutConfigTableViewController: UITableViewController, UITextFieldDelegat
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        // #warning Incomplete implementation, return the number of rows
         return arrayOfOptions.count
     }
 

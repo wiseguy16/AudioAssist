@@ -23,13 +23,6 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
     
     let checkImage = UIImage(named: "CheckmarkFull_icon")
     let unCheckImage = UIImage(named: "CheckMarkEmpty_icon")
-    
-//    lazy var refreshControl: UIRefreshControl = {
-//        let refreshControl = UIRefreshControl()
-//        refreshControl.addTarget(self, action: #selector(AudioAssistTableViewController.handleRefresh(_:)), forControlEvents: .ValueChanged)
-//        
-//        return refreshControl
-//    }()
 
 
 
@@ -39,14 +32,8 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(AudioAssistTableViewController.handleRefresh(_:)), forControlEvents: .ValueChanged)
         
-        tableView.tableFooterView = UIView()   //  tableview.tableFooterView = UIView()
-        //tableView.tableFooterView
+        tableView.tableFooterView = UIView()
         splitViewController?.delegate = self
-       // splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
-       // splitViewController?.preferredDisplayMode = .AllVisible
-        
-//        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
-//        navigationItem.leftItemsSupplementBackButton = true
         
         splitViewController?.preferredDisplayMode = .AllVisible
         
@@ -55,17 +42,12 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? ChatViewController
         }
         
-        self.tableView.addSubview(refreshControl)    //addSubview(self.refreshControl)
+        self.tableView.addSubview(refreshControl)
         
         configureDatabase()
         
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
+           }
     
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
@@ -85,9 +67,9 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
     
     
     
-    func handleRefresh(refreshControl: UIRefreshControl) {
+    func handleRefresh(refreshControl: UIRefreshControl)
+    {
         // Do some reloading of data and update the table view's data source
-        // Fetch more objects from a web service, for example...
         
         for deleteObject in arrayOfMessages
         {
@@ -114,8 +96,6 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         ref = FIRDatabase.database().reference()
         
         // Listen for new messages from Firebase
-        //  refHandle = ref.child(uniqueSessionID).observeEventType(.ChildAdded, withBlock: {
-        
         
         ref.child("messages").observeEventType(.Value, withBlock: {
             (snapshot) -> Void in
@@ -130,8 +110,6 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
             self.arrayOfMessages = newArrayOfMessages
             self.tableView.reloadData()
             self.messages.append(snapshot)
-            
-            //    self.tableview.insertRowsAtIndexPaths([NSIndexPath(forRow: self.arrayOfMessages.count-1, inSection: 0)], withRowAnimation: .Automatic)
             
         })
         
@@ -162,7 +140,6 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         
         let thisRequest = self.arrayOfMessages[indexPath.row]
         
-        
         cell.requestLabel.attributedText = makeImageFromString("\(thisRequest.request)")
         
         if thisRequest.completed == true
@@ -191,16 +168,11 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
 
     @IBAction func requestCompletedChecked(sender: UIButton)
     {
-        //isChecked = !isChecked
+        
         let contentView = sender.superview
         let cell = contentView?.superview as! MessageCell
-        let thisIndexPath = tableView.indexPathForCell(cell)  //tableview.indexPathForCell(cell)
-        
+        let thisIndexPath = tableView.indexPathForCell(cell)
         let myDone = arrayOfMessages[thisIndexPath!.row]
-        // var aSnap = messages[thisIndexPath!.row]
-        
-        // let aRequest = Message()
-        //let updateRequest = aRequest.convertSnapshotToMessage(aSnap)
         
         myDone.completed = !myDone.completed
         if myDone.completed == true
@@ -213,7 +185,6 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         }
         let updatedMessage = ["completed": myDone.completed]
         myDone.ref?.updateChildValues(updatedMessage)
-        
         
     }
     
@@ -229,15 +200,11 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         if editingStyle == .Delete
         {
             let reqToDelete = arrayOfMessages[indexPath.row]
-            // let refToDelete = messages[indexPath.row]
+
             reqToDelete.ref!.removeValue()
          }
-        //   tableView.reloadData()
     }
 
-    
-
-     // MARK: - Navigation
     
     // MARK: - Segues
     
@@ -246,13 +213,10 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         if segue.identifier == "StageViewSegue"
         {
             configureDatabase()
-//            if let indexPath = self.tableView.indexPathForSelectedRow
-//            {
+
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! ChatViewController
-                //controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
-            //}
         }
     }
 
@@ -277,6 +241,8 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
         
     }
     
+//MARK- Creating icons in the Request Log
+    
     func makeImageFromString(newWord: String) -> NSMutableAttributedString
     {
         let offsetY: CGFloat = -8.0
@@ -292,7 +258,6 @@ class AudioAssistTableViewController: UITableViewController, UISplitViewControll
                 image10Attachment.image = UIImage(named: "\(checkWord)")
                 image10Attachment.bounds = CGRectMake(0, offsetY, image10Attachment.image!.size.width, image10Attachment.image!.size.height)
                 image10String = NSAttributedString(attachment: image10Attachment)
-                //image10String.
             }
             else
             {
